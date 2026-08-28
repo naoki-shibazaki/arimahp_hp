@@ -485,42 +485,38 @@
       document.getElementById('title_step1').style.display = 'block';
     });
 
-    // Send button → submit to Formspree then go to step 3
-    document.getElementById('btn_send').addEventListener('click', async () => {
-      const btn = document.getElementById('btn_send');
-      btn.disabled = true;
-      btn.value = '送信中...';
+    // Send button → open mailto with form data pre-filled
+    document.getElementById('btn_send').addEventListener('click', () => {
+      const title   = document.getElementById('f_title').value;
+      const name    = document.getElementById('f_name').value;
+      const org     = document.getElementById('f_org').value;
+      const phone   = document.getElementById('f_phone').value;
+      const email   = document.getElementById('f_email').value;
+      const message = document.getElementById('f_message').value;
 
-      const data = {
-        お問い合わせ件名: document.getElementById('f_title').value,
-        氏名: document.getElementById('f_name').value,
-        '法人名・組織名': document.getElementById('f_org').value,
-        電話番号: document.getElementById('f_phone').value,
-        email: document.getElementById('f_email').value,
-        お問い合わせ内容: document.getElementById('f_message').value,
-        _replyto: document.getElementById('f_email').value,
-      };
+      const body = [
+        '【お問い合わせ件名】',  title,
+        '',
+        '【氏名】', name,
+        '',
+        '【法人名・組織名】', org,
+        '',
+        '【電話番号】', phone,
+        '',
+        '【メールアドレス】', email,
+        '',
+        '【お問い合わせ内容】', message,
+      ].join('\n');
 
-      try {
-        const res = await fetch('https://formspree.io/info@alive-m.com', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(data)
-        });
-        if (res.ok) {
-          document.getElementById('step2').style.display = 'none';
-          document.getElementById('title_step2').style.display = 'none';
-          document.getElementById('step3').style.display = 'block';
-        } else {
-          btn.disabled = false;
-          btn.value = '送信';
-          alert('送信に失敗しました。しばらくしてから再度お試しください。');
-        }
-      } catch(e) {
-        btn.disabled = false;
-        btn.value = '送信';
-        alert('送信に失敗しました。インターネット接続を確認してください。');
-      }
+      const mailto = 'mailto:info@alive-m.com'
+        + '?subject=' + encodeURIComponent('【お問い合わせ】' + title)
+        + '&body='    + encodeURIComponent(body);
+
+      window.location.href = mailto;
+
+      document.getElementById('step2').style.display = 'none';
+      document.getElementById('title_step2').style.display = 'none';
+      document.getElementById('step3').style.display = 'block';
     });
   </script>
 </body>
