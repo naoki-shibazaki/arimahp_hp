@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020.03.02 WORKSにPeaceful留学を追加しました。 &#8211; アライブマーケティング株式会社</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <style>
+
+    @font-face {
+      font-family: bebasneuebold;
+      src: url('/font/BebasNeueBold.woff') format('woff');
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { overflow-x: hidden; }
+    body {
+      font-family: 'Noto Sans JP','Open Sans',Helvetica Neue,Sans-serif;
+      margin: 0; padding: 0;
+      background-color: #efefef;
+      color: #090909;
+      letter-spacing: 2px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    body * { font-weight: bold; }
+    a { text-decoration: none; color: #000; }
+    h1,h2,h3,h4,h5,h6,p { margin: 0; }
+    ul { margin: 0; padding: 0; }
+    li { list-style: none; }
+    img { display: block; max-width: 100%; }
+
+    header {
+      position: fixed; top: 0; left: 0; z-index: 10;
+      display: flex; width: 100vw; height: 120px;
+      color: #fff; align-items: center;
+      opacity: 0;
+      animation: headerIn 1.4s ease forwards;
+      transition: height .4s, background-color .4s;
+    }
+    header.background_header { height: 60px; background-color: rgba(9,9,9,.8); }
+    header a { color: #fff; }
+    .logo {
+      font-family: bebasneuebold !important;
+      padding: .5rem 0 0 1rem; font-size: 2.8rem;
+      letter-spacing: -0.1em; flex-grow: 3;
+    }
+    .logo:first-letter { color: #46FFDD; }
+    header .menu {
+      margin: 0 1rem; padding-top: .3rem;
+      font-family: bebasneuebold; font-size: 1.5rem;
+      letter-spacing: .1rem; flex-grow: 1;
+      border-bottom: 4px solid transparent; transition: border-color .4s;
+      white-space: nowrap;
+    }
+    header .menu:hover { border-bottom: 4px solid #46FFDD; }
+    .hamburger_menu {
+      position: absolute; right: 10px; display: none;
+      flex-direction: column; align-items: center; justify-content: space-between;
+      width: 24px; height: 18px;
+    }
+    .hamburger_menu_line {
+      width: 100%; height: 1.5px; background-color: #fff;
+      transition: transform .3s ease-in-out, opacity .3s ease-in-out;
+    }
+    .hamburger_menu.active .hamburger_menu_line:nth-child(1) { transform-origin: bottom right; transform: rotate(-45deg); }
+    .hamburger_menu.active .hamburger_menu_line:nth-child(2) { opacity: 0; }
+    .hamburger_menu.active .hamburger_menu_line:nth-child(3) { transform-origin: top right; transform: rotate(45deg); }
+    .hamburger_menu_content {
+      position: fixed; display: none; top: 0; left: 0; z-index: 9;
+      width: 100vw; height: 100vh; padding-top: 5rem;
+      background-color: rgba(0,0,0,.9); justify-content: center;
+    }
+    .hamburger_menu_content ul { width: 70%; }
+    .hamburger_menu_content li { padding: 1rem 0; font-family: bebasneuebold; font-size: 1.8rem; letter-spacing: .3rem; text-align: center; }
+    .hamburger_menu_content li a { color: #fff; }
+    @keyframes headerIn {
+      0% { clip-path: inset(0 0 0 100%); opacity: 0; }
+      100% { clip-path: inset(0); opacity: 1; }
+    }
+
+    .first_view {
+      position: relative; display: flex;
+      width: 100vw; height: 100vh;
+      justify-content: center; align-items: center;
+      background-size: cover; background-position: center;
+    }
+    .first_view::before {
+      position: absolute; inset: 0;
+      background-color: rgba(9, 9, 9, .85); content: "";
+      z-index: 0;
+    }
+    .first_view .title_set {
+      position: relative; z-index: 1;
+      color: #93383e; text-align: center;
+    }
+    .title_line {
+      display: inline-block; width: 2.5rem; height: 5px;
+      margin-bottom: 1.6rem; background-color: #93383e;
+      opacity: 0; animation: revealTitle .8s ease 1.4s forwards;
+    }
+    .first_view .title {
+      font-family: bebasneuebold !important;
+      font-size: 7rem; letter-spacing: .8rem; color: #93383e;
+      opacity: 0; animation: revealTitle .6s ease .4s forwards;
+    }
+    .sub_title {
+      display: inline-block; margin-top: 1.2rem;
+      font-size: 12px; color: #93383e; letter-spacing: .1rem;
+      opacity: 0; animation: revealTitle 1.8s ease 1.4s forwards;
+    }
+    .vartical_bar {
+      position: absolute; bottom: 0; left: calc(50% - .5px);
+      width: 1px; height: 30vh; background-color: #93383e;
+      opacity: 0; animation: slideDown 1s ease 2s forwards;
+    }
+    @keyframes revealTitle {
+      0% { clip-path: inset(0 100% 0 0); }
+      100% { clip-path: inset(0); opacity: 1; }
+    }
+    @keyframes slideDown {
+      0% { clip-path: inset(0 0 100% 0); }
+      100% { clip-path: inset(0); opacity: 1; }
+    }
+
+    .title_set { position: relative; display: inline-block; }
+    .title_set.black { color: #000; text-align: left; }
+    .title_set.white { color: #fff; text-align: left; }
+    .title_set.black .sub_title { color: #000; }
+    .title_set.white .sub_title { color: #fff; }
+    h2.title { font-family: bebasneuebold !important; font-size: 5rem; line-height: 1; letter-spacing: .5rem; }
+    .main_content { padding-bottom: 10rem; }
+
+    .arrow { position: relative; z-index: 1; margin: 0 1rem; }
+    .arrow .arrow_mask_1 { position: relative; width: 80px; height: 1px; overflow: hidden; }
+    .arrow .arrow_line_1 { position: absolute; left: 0; width: 50px; height: 1px; background-color: #fff; animation: arrow_line_1 2s linear infinite; }
+    .arrow .arrow_mask_2 { position: absolute; right: 11px; top: -4px; width: 10px; height: 8px; overflow: hidden; }
+    .arrow .arrow_line_2 { position: absolute; top: 0; width: 8px; height: 1px; background-color: #fff; transform-origin: bottom right; transform: rotate(-90deg); animation: arrow_line_2 2s linear infinite; }
+    .arrow .arrow_mask_3 { position: absolute; right: 0; top: 0; width: 14px; height: 10px; overflow: hidden; }
+    .arrow .arrow_line_3 { position: absolute; right: 0; top: 0; width: 14px; height: 1px; background-color: #fff; transform-origin: top right; transform: rotate(-14deg); animation: arrow_line_3 2s linear infinite; }
+    .arrow .arrow_mask_4 { position: absolute; right: 0; bottom: 0; width: 14px; height: 10px; overflow: hidden; }
+    .arrow .arrow_line_4 { position: absolute; right: 0; bottom: 0; width: 14px; height: 1px; background-color: #fff; transform-origin: bottom right; transform: rotate(14deg); animation: arrow_line_4 2s linear infinite; }
+    @keyframes arrow_line_1 { 0%{transform:translate(-20px,0)} 8%{transform:translate(20px,0)} 45%{transform:translate(15px,0)} 50%{transform:translate(20px,0)} 70%{transform:translate(100px,0)} 100%{transform:translate(100px,0)} }
+    @keyframes arrow_line_2 { 0%{transform:rotate(-90deg) translate(10px,0)} 5%{transform:rotate(-90deg) translate(10px,0)} 10%{transform:rotate(-90deg) translate(0,0)} 60%{transform:rotate(-90deg) translate(0,0)} 65%{transform:rotate(-90deg) translate(-10px,0)} 100%{transform:rotate(-90deg) translate(-10px,0)} }
+    @keyframes arrow_line_3 { 0%{transform:rotate(-14deg) translate(-18px,0)} 10%{transform:rotate(-14deg) translate(-18px,0)} 15%{transform:rotate(-14deg) translate(0,0)} 65%{transform:rotate(-14deg) translate(0,0)} 70%{transform:rotate(-14deg) translate(18px,0)} 100%{transform:rotate(-14deg) translate(18px,0)} }
+    @keyframes arrow_line_4 { 0%{transform:rotate(14deg) translate(18px,0)} 15%{transform:rotate(14deg) translate(18px,0)} 20%{transform:rotate(14deg) translate(0,0)} 70%{transform:rotate(14deg) translate(0,0)} 75%{transform:rotate(14deg) translate(-18px,0)} 100%{transform:rotate(14deg) translate(-18px,0)} }
+
+    .hover_arrow { display: flex; align-items: center; }
+    .arrow_reverse .arrow { transform: scaleX(-1); }
+    .archive_link { display: block; padding: 1rem 2rem; font-family: bebasneuebold; font-size: 1.2rem; letter-spacing: .2rem; color: #000; }
+    .archive_link:hover { color: #46FFDD; }
+    .back_to_archive { position: relative; margin-bottom: 3rem; display: flex; align-items: center; justify-content: center; gap: 2rem; }
+    .back_to_archive .box { padding: 1rem; }
+
+    footer { display: flex; height: 220px; padding: 1.4rem 0; background-color: #fff; font-size: 12px; letter-spacing: 1px; color: #444; text-align: center; justify-content: space-around; flex-direction: column; }
+
+    @media (max-width: 768px) {
+      header { height: 3.5rem; background-color: #444; }
+      .logo { padding-top: 7px; background-color: #444; font-size: 2rem; }
+      header .menu { display: none; }
+      .hamburger_menu { display: flex; }
+      header.background_header { height: 3.5rem !important; background-color: #444 !important; }
+      .first_view .title_set { max-width: 90vw; }
+      .first_view .title { font-size: 2.5rem; letter-spacing: .2rem; }
+    }
+
+
+    .pressrelease.first_view { background-image: url('https://alivemarketing.co.jp/wp-content/themes/levias/img/white_building_street.jpg'); }
+    .pressrelease_area {
+      width: 70%; min-width: 230px; height: 100%; min-height: 40rem;
+      padding: 0 0 calc(9% + 5rem) 0; margin-bottom: 3rem; margin-left: 30%;
+      background-color: #fff;
+    }
+    .pressrelease_date {
+      height: 6rem; padding: 2rem 2.5rem; background-color: #41D5BA;
+      font-family: 'bebasneuebold'; font-size: 2rem; line-height: 2.5rem;
+      letter-spacing: .1rem; color: rgba(255,255,255,.7);
+    }
+    .pressrelease_title { padding: 2.5rem 2.7rem 0 2.7rem; font-size: 1rem; }
+    .line { margin: 1rem 2.5rem; border-bottom: 1px solid #ccc; }
+    .pressrelease_text { margin: 1.5rem 2.5rem; letter-spacing: .05rem; line-height: 1.5rem; }
+    .pressrelease_text p { margin-bottom: 1rem; font-weight: normal; }
+    .pressrelease_text a { color: #46FFDD; text-decoration: underline; }
+    .pressrelease_text iframe { width: 100%; }
+    @media (max-width: 768px) {
+      .pressrelease_area { width: 90%; max-width: 382.5px; margin: 0 auto; }
+    }
+    @media (min-width: 769px) {
+      .pressrelease_area { margin-bottom: 7rem; }
+      .back_to_archive { width: calc(70% - 5rem); height: 0; margin-left: calc(30% + 2.5rem); }
+    }
+
+  </style>
+</head>
+<body class="pressrelease-template-default single single-pressrelease">
+  <header id="site_header">
+  <div class="logo"><a href="/"><img src="/img/logo.png" alt="ALIVE" class="site-logo" onerror="this.style.display='none';this.nextSibling.style.display='inline';"><span style="display:none;color:#fff;font-family:bebasneuebold;font-size:2.8rem;letter-spacing:-0.1em;">ALIVE</span></a></div>
+  <div class="menu"><a href="/services/">SERVICE</a></div>
+  <div class="menu"><a href="/works/">WORKS</a></div>
+  <div class="menu"><a href="/about/">ABOUT US</a></div>
+  <div class="menu"><a href="/recruit/">RECRUIT</a></div>
+  <div class="menu"><a href="/contact/">CONTACT</a></div>
+  <div class="hamburger_menu" id="hamburger_menu">
+    <div class="hamburger_menu_line"></div>
+    <div class="hamburger_menu_line"></div>
+    <div class="hamburger_menu_line"></div>
+  </div>
+</header>
+<div class="hamburger_menu_content" id="hamburger_menu_content">
+  <ul>
+    <li><a href="/services/">SERVICE</a></li>
+    <li><a href="/works/">WORKS</a></li>
+    <li><a href="/about/">ABOUT US</a></li>
+    <li><a href="/recruit/">RECRUIT</a></li>
+    <li><a href="/contact/">CONTACT</a></li>
+  </ul>
+</div>
+  <div class="pressrelease first_view">
+  <div class="title_set">
+    <div class="title_line"></div>
+    <h1 class="title">PRESS RELEASE</h1>
+    <span class="sub_title">プレスリリース</span>
+  </div>
+  <div class="vartical_bar"></div>
+</div>
+  <div class="pressrelease main_content">
+  <div class="pressrelease_content">
+    <div class="pressrelease_area">
+      <div class="pressrelease_date">2020.03.02</div>
+      <h1 class="pressrelease_title">2020.03.02 WORKSにPeaceful留学を追加しました。</h1>
+      <div class="line"></div>
+      <div class="pressrelease_text"></div>
+    </div>
+    <div class="back_to_archive">
+      <a href="/news/site-renewal/" class="previous hover_arrow arrow_reverse"><div class="box left"><div class="arrow">
+  <div class="arrow_mask_1"><div class="arrow_line_1"></div></div>
+  <div class="arrow_mask_2"><div class="arrow_line_2"></div></div>
+  <div class="arrow_mask_3"><div class="arrow_line_3"></div></div>
+  <div class="arrow_mask_4"><div class="arrow_line_4"></div></div>
+</div></div></a>
+      <a class="archive_link" href="/news/">BACK TO PRESSRELEASES</a>
+      <a href="/news/meti-added-to-works/" class="next hover_arrow"><div class="box right"><div class="arrow">
+  <div class="arrow_mask_1"><div class="arrow_line_1"></div></div>
+  <div class="arrow_mask_2"><div class="arrow_line_2"></div></div>
+  <div class="arrow_mask_3"><div class="arrow_line_3"></div></div>
+  <div class="arrow_mask_4"><div class="arrow_line_4"></div></div>
+</div></div></a>
+    </div>
+  </div>
+</div>
+  <footer>
+  <div><p>Copyright &#169; 2019 Alive Marketing. All rights resorved</p></div>
+</footer>
+  
+<script>
+  const hamburger = document.getElementById('hamburger_menu');
+  const menu = document.getElementById('hamburger_menu_content');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+  });
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('site_header');
+    if (window.scrollY > 50) {
+      header.classList.add('background_header');
+    } else {
+      header.classList.remove('background_header');
+    }
+  });
+</script>
+
+</body>
+</html>

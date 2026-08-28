@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="動画制作を軸とした制作事業や事業支援に関わりながら、事業拡大に挑戦できる仲間を募集しています。福利厚生や選考プロセスも掲載。">
+  <title>RECRUIT – アライブマーケティング株式会社</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: bebasneuebold;
+      src: url('/font/BebasNeueBold.woff') format('woff');
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { overflow-x: hidden; }
+    body {
+      font-family: 'Noto Sans JP','Open Sans',Helvetica Neue,Sans-serif;
+      margin: 0; padding: 0;
+      background-color: #efefef;
+      color: #090909;
+      letter-spacing: 2px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    body * { font-weight: bold; }
+    a { text-decoration: none; color: #000; }
+    h1,h2,h3,h4,h5,h6,p { margin: 0; }
+    ul { margin: 0; padding: 0; }
+    li { list-style: none; }
+
+    /* ---- HEADER ---- */
+    header {
+      position: fixed; top: 0; left: 0; z-index: 10;
+      display: flex; width: 100vw; height: 120px;
+      color: #fff; align-items: center;
+      opacity: 0;
+      animation: headerIn 1.4s ease forwards;
+      transition: height .4s, background-color .4s;
+    }
+    header.background_header { height: 60px; background-color: rgba(9,9,9,.8); }
+    header a { color: #fff; }
+    .site-logo { height: 48px; width: auto; display: block; }
+    @media (max-width: 768px) { .site-logo { height: 34px; } }
+    .logo {
+      font-family: bebasneuebold !important;
+      padding: .5rem 0 0 1rem; font-size: 2.8rem;
+      letter-spacing: -0.1em; flex-grow: 3;
+    }
+    .logo:first-letter { color: #46FFDD; }
+    header .menu {
+      margin: 0 1rem; padding-top: .3rem;
+      font-family: bebasneuebold; font-size: 1.5rem;
+      letter-spacing: .1rem; flex-grow: 1;
+      border-bottom: 4px solid transparent; transition: border-color .4s;
+      white-space: nowrap;
+    }
+    header .menu:hover { border-bottom: 4px solid #46FFDD; }
+    .hamburger_menu {
+      position: absolute; right: 10px; display: none;
+      flex-direction: column; align-items: center; justify-content: space-between;
+      width: 24px; height: 18px;
+    }
+    .hamburger_menu_line {
+      width: 100%; height: 1.5px; background-color: #fff;
+      transition: transform .3s ease-in-out, opacity .3s ease-in-out;
+    }
+    .hamburger_menu.active .hamburger_menu_line:nth-child(1) { transform-origin: bottom right; transform: rotate(-45deg); }
+    .hamburger_menu.active .hamburger_menu_line:nth-child(2) { opacity: 0; }
+    .hamburger_menu.active .hamburger_menu_line:nth-child(3) { transform-origin: top right; transform: rotate(45deg); }
+    .hamburger_menu_content {
+      position: fixed; display: none; top: 0; left: 0; z-index: 9;
+      width: 100vw; height: 100vh; padding-top: 5rem;
+      background-color: rgba(0,0,0,.9); justify-content: center;
+    }
+    .hamburger_menu_content ul { width: 70%; }
+    .hamburger_menu_content li { padding: 1rem 0; font-family: bebasneuebold; font-size: 1.8rem; letter-spacing: .3rem; text-align: center; }
+    .hamburger_menu_content li a { color: #fff; }
+    @keyframes headerIn {
+      0% { clip-path: inset(0 0 0 100%); opacity: 0; }
+      100% { clip-path: inset(0); opacity: 1; }
+    }
+
+    /* ---- FIRST VIEW ---- */
+    .first_view {
+      position: relative; display: flex;
+      width: 100vw; height: 100vh;
+      color: #fff; justify-content: center; align-items: center;
+      background-size: cover;
+      background-position: center;
+    }
+    .recruit.first_view {
+      background-image: url('/img/wall_of_glass.jpg');
+    }
+    .first_view::before {
+      position: absolute; inset: 0;
+      background-color: rgba(9, 9, 9, .75); content: "";
+      z-index: 0;
+    }
+    .first_view .title_set {
+      position: relative; z-index: 1;
+      color: #fff; text-align: center;
+    }
+    .title_line {
+      display: inline-block; width: 2.5rem; height: 5px;
+      margin-bottom: 1.6rem; background-color: #fff;
+      opacity: 0;
+      animation: revealTitle .8s ease 1.4s forwards;
+    }
+    .first_view .title {
+      font-family: bebasneuebold !important;
+      font-size: 7rem; letter-spacing: .8rem; color: #fff;
+      opacity: 0;
+      animation: revealTitle .6s ease .4s forwards;
+    }
+    .sub_title {
+      display: inline-block; margin-top: 1.2rem;
+      font-size: 12px; color: #fff; letter-spacing: .1rem;
+      opacity: 0;
+      animation: revealTitle 1.8s ease 1.4s forwards;
+    }
+    .vartical_bar {
+      position: absolute; bottom: 0; left: calc(50% - .5px);
+      width: 1px; height: 30vh; background-color: #fff;
+      opacity: 0;
+      animation: slideDown 1s ease 2s forwards;
+    }
+    @keyframes revealTitle {
+      0% { clip-path: inset(0 100% 0 0); }
+      100% { clip-path: inset(0); opacity: 1; }
+    }
+    @keyframes slideDown {
+      0% { clip-path: inset(0 0 100% 0); }
+      100% { clip-path: inset(0); opacity: 1; }
+    }
+
+    /* ---- COMMON ---- */
+    .content { margin-bottom: 6rem; }
+    .title_set { position: relative; display: inline-block; }
+    .title_set.black { color: #000; text-align: left; }
+    .title_set.white { color: #fff; text-align: center; }
+    .title_set.black .sub_title { color: #000; }
+    .title_set.white .sub_title { color: #fff; }
+    h2.title {
+      font-family: bebasneuebold !important;
+      font-size: 5rem; line-height: 1; letter-spacing: .5rem;
+    }
+
+    /* scroll animation */
+    .js_title {
+      clip-path: inset(0 100% 0 0); transition: clip-path .5s;
+    }
+    .js_title.active { clip-path: inset(0); }
+
+    /* ---- MESSAGE ---- */
+    #message {
+      position: relative; display: flex; width: 100vw;
+      height: 500px; margin-bottom: 6rem; justify-content: center;
+    }
+    .message_view.content {
+      position: absolute; display: flex; right: 0; bottom: 0; left: 0;
+      width: 80vw; max-width: 1100px; min-height: 580px; height: auto;
+      margin: auto; background-color: #fff; flex-direction: column;
+    }
+    .message_view { display: flex; padding: 3rem; justify-content: center; align-items: center; }
+    .message_view .title_set.black { text-align: center; }
+    .message_view.content .box {
+      width: 90%; max-width: 700px; margin: auto;
+      text-align: left; line-height: 3rem; opacity: .8;
+    }
+
+    /* ---- PROJECT ---- */
+    #project { width: 100vw; }
+    #project .title_set { display: block; max-width: 1100px; margin: auto; margin-bottom: 1.5rem; }
+    .caption {
+      width: 70%; max-width: 1000px; margin: 0 auto;
+      text-align: left; line-height: 2rem; color: #000; opacity: .8;
+    }
+    .center { width: 100vw; text-align: center; }
+    .project_contents {
+      display: flex; width: 100%; max-width: 1100px;
+      padding: 4rem 0 3rem; margin: 0 auto;
+      justify-content: space-around;
+    }
+    .project_content { position: relative; width: 47%; flex-direction: row-reverse; }
+    .project_panel {
+      width: 55%; min-width: 160px; height: auto; min-height: 240px;
+      padding: 2rem 1rem; text-align: left;
+    }
+    .project_number {
+      font-family: bebasneuebold; font-size: 4rem;
+      color: #46FFDD; text-align: center;
+    }
+    .project_title { padding: 10px 0; font-size: 1.4rem; line-height: 1.6rem; }
+    .project_caption { font-size: .9rem; opacity: .8; }
+    .project_image { flex: 1; height: 240px; overflow: hidden; }
+    .project_image img { width: 100%; height: 100%; object-fit: cover; }
+    .hover_arrow { display: flex; align-items: flex-start; }
+    .project_index_arrow { position: absolute; bottom: 1rem; right: 1rem; }
+    .button_setting {
+      width: 80%; max-width: 1100px; margin: 0 auto; text-align: right;
+    }
+    .black_button {
+      position: relative; display: inline-block;
+      padding: .9rem 4rem .5rem 4rem;
+      border: solid 2px #000;
+      font-family: bebasneuebold; font-size: 16px; color: #000; opacity: .8;
+    }
+    .black_button:hover { transform: translateX(20px); transition: .3s; }
+    .black_button:before {
+      position: absolute; top: 47%; left: calc(80% + 100px);
+      width: 0; height: 0;
+      border: 3px solid transparent; border-left: 14px solid #46FFDD; content: "";
+    }
+    .black_button:after {
+      position: absolute; top: 0; left: 80%;
+      width: 100px; height: 50%;
+      border-bottom: #46FFDD 2px solid; content: "";
+    }
+    #project .black_button { margin-bottom: 6rem; }
+
+    /* ---- FUTURE ---- */
+    #future {
+      position: relative; display: flex; width: 100vw; height: auto; flex-direction: row;
+    }
+    #future .container-maxwidth { width: 100%; max-width: 1100px; height: 100%; margin: 0 auto; }
+    .future_image {
+      position: absolute; z-index: -2; width: 60vw;
+      top: 0; bottom: 0;
+      background: url('/img/white_corridor.jpg') center/cover no-repeat;
+    }
+    .future_paragraph {
+      position: relative; width: 80%;
+      margin-top: 12%; margin-left: 20%; background-color: #fff;
+    }
+    #future .caption { width: 80%; padding-top: 14%; }
+    #future .title_set { position: absolute; top: -3.5rem; left: 10%; }
+    .image_icons {
+      display: flex; width: 80%; padding: 6% 6% 8%;
+      margin: 0 auto; justify-content: space-around;
+    }
+    .image_icon { width: 30%; }
+    .image_icon img { display: block; width: 40%; margin: 0 auto; }
+    .graph_image { width: 100%; }
+    .graph_title { margin: 1rem; font-size: 1rem; letter-spacing: .1rem; text-align: center; opacity: .8; }
+    .graph_caption { line-height: 1.3rem; text-align: left; opacity: .8; }
+    .image_icon:nth-of-type(1), .image_icon:nth-of-type(3) { margin-top: 12%; }
+
+    /* ---- WELFARE ---- */
+    #welfare {
+      position: relative; display: flex; width: 100vw; height: auto; flex-direction: row;
+    }
+    #welfare .container-maxwidth { max-width: 1100px; width: 100%; height: 100%; margin: 0 auto; }
+    .welfare_image {
+      position: absolute; right: 0; z-index: -1; width: 65vw;
+      top: 0; bottom: 0;
+      background: url('/img/white_buildings_and_sky.jpg') center/cover no-repeat;
+    }
+    .welfare_paragraph {
+      position: relative; width: 80%; margin-top: 14%; background-color: #fff;
+    }
+    #welfare .caption { width: 80%; padding-top: 15%; }
+    #welfare .title_set { position: absolute; top: -4rem; left: 10%; z-index: 3; }
+
+    /* ---- PROCESS ---- */
+    #process { width: 100vw; max-width: 800px; margin: 100px auto 0; }
+    #process .title_set { margin-bottom: 3rem; display: block; }
+    .process_detail {
+      display: flex; width: 95%; margin: 10% auto;
+      text-align: center; flex-direction: column;
+      align-items: center; justify-content: flex-start;
+    }
+    #process .box {
+      display: flex; width: 100%;
+      background-color: #fff; text-align: center;
+    }
+    .process_title {
+      display: flex; width: 23%; padding: 1.5rem 0;
+      background-color: #2A2A2A; letter-spacing: .1rem;
+      font-size: .95rem; color: #46FFDD;
+      flex-direction: column; align-items: center; justify-content: space-around;
+    }
+    .process_caption {
+      width: 80%; padding: 1.5rem; line-height: 1.3rem; text-align: left; opacity: .8;
+    }
+    .empty_arrow {
+      width: 0; height: 0;
+      margin-top: 10px; margin-bottom: -10px;
+      border: 25px solid transparent; border-left: 14px solid #46FFDD;
+      transform: rotate(90deg);
+    }
+
+    /* ---- ARROW COMPONENT ---- */
+    .arrow { position: relative; width: 40px; height: 12px; flex-shrink: 0; }
+    .arrow_mask_1 { position: absolute; top: 50%; left: 0; width: 100%; height: 2px; transform: translateY(-50%); overflow: hidden; }
+    .arrow_line_1 { width: 100%; height: 100%; background-color: #46FFDD; }
+    .arrow_mask_2 { position: absolute; top: 0; right: 0; width: 10px; height: 7px; transform-origin: right bottom; transform: rotate(45deg); overflow: hidden; }
+    .arrow_line_2 { width: 100%; height: 2px; background-color: #46FFDD; position: absolute; bottom: 0; }
+    .arrow_mask_3 { position: absolute; bottom: 0; right: 0; width: 10px; height: 7px; transform-origin: right top; transform: rotate(-45deg); overflow: hidden; }
+    .arrow_line_3 { width: 100%; height: 2px; background-color: #46FFDD; position: absolute; top: 0; }
+
+    /* ---- FOOTER ---- */
+    footer {
+      display: flex; height: 220px; padding: 1.4rem 0;
+      background-color: #fff; font-size: 12px; letter-spacing: 1px;
+      color: #444; text-align: center;
+      justify-content: space-around; flex-direction: column;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    .future_image::after, .welfare_image::after {
+      position: absolute; inset: 0; z-index: -1;
+      background-color: rgba(9,9,9,.5); content: "";
+    }
+
+    @media (max-width: 768px) {
+      header { height: 3.5rem; background-color: #444; }
+      .logo { padding-top: 7px; background-color: #444; font-size: 2rem; }
+      header .menu { display: none; }
+      .hamburger_menu { display: flex; }
+      header.background_header { height: 3.5rem !important; background-color: #444 !important; }
+      .first_view .title { font-size: 4rem; letter-spacing: .4rem; }
+      #message { height: auto; margin-top: -3rem; margin-bottom: 5rem; }
+      .message_view.content { position: static; width: 95% !important; height: auto; }
+      .message_view.content .box { width: 100%; padding-bottom: 3rem; line-height: 2rem; }
+      .caption { width: 80%; font-size: .8rem; }
+      .project_contents { flex-direction: column; align-items: center; }
+      .project_content { width: 90%; margin-bottom: 2rem; }
+      .title_set.black { margin-left: 0 !important; text-align: center !important; }
+      #future { margin-bottom: 5rem; }
+      .future_image { width: 100%; height: 30rem; }
+      .future_paragraph { width: 95%; margin: 15rem auto 0; }
+      #future .title_set { width: 100%; margin: 0; top: -15%; left: 0; text-align: center; }
+      #welfare .title_set { width: 100%; margin: 0; top: -15%; left: 0; text-align: center; }
+      .welfare_paragraph { width: 95%; margin: 15rem auto 5rem; }
+      .welfare_image { width: 100%; height: 30rem; }
+      .image_icons { flex-direction: column; }
+      .image_icon { width: 100%; margin: 2rem 0; }
+      .image_icon:nth-of-type(1), .image_icon:nth-of-type(3) { margin-top: 2rem; }
+      #process .box { flex-direction: column; align-items: center; width: 90%; margin: 2% auto; }
+      .process_title { width: 100% !important; padding: 1rem 0 !important; }
+      .process_caption { width: 100% !important; line-height: 2rem; }
+      .button_setting { text-align: center; }
+      .black_button:before { left: calc(75% + 70px); }
+      .black_button:after { width: 70px; left: 75%; }
+      /* PROCESS mobile */
+      .process_detail { width: 100%; margin: 5% auto; }
+      .empty_arrow { margin: 4px 0; border-width: 14px; }
+      /* CONTENT spacing */
+      .content { margin-bottom: 4rem; }
+    }
+
+    /* TABLET */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .future_paragraph { width: 85%; margin-left: 15%; }
+      .welfare_paragraph { width: 85%; }
+      .image_icons { padding: 4% 4% 6%; }
+      .image_icon { width: 30%; }
+      .project_contents { flex-direction: column; align-items: center; }
+      .project_content { width: 80%; }
+      #process { max-width: 680px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="site_header">
+    <div class="logo"><a href="/"><img src="/img/logo.png" alt="ALIVE" class="site-logo" onerror="this.style.display='none';this.nextSibling.style.display='inline';"><span style="display:none;color:#fff;font-family:bebasneuebold;font-size:2.8rem;letter-spacing:-0.1em;">ALIVE</span></a></div>
+    <div class="menu"><a href="/services/">SERVICE</a></div>
+    <div class="menu"><a href="/works/">WORKS</a></div>
+    <div class="menu"><a href="/about/">ABOUT US</a></div>
+    <div class="menu"><a href="/recruit/">RECRUIT</a></div>
+    <div class="menu"><a href="/contact/">CONTACT</a></div>
+    <div class="hamburger_menu" id="hamburger_menu">
+      <div class="hamburger_menu_line"></div>
+      <div class="hamburger_menu_line"></div>
+      <div class="hamburger_menu_line"></div>
+    </div>
+  </header>
+  <div class="hamburger_menu_content" id="hamburger_menu_content">
+    <ul>
+      <li><a href="/services/">SERVICE</a></li>
+      <li><a href="/works/">WORKS</a></li>
+      <li><a href="/about/">ABOUT US</a></li>
+      <li><a href="/recruit/">RECRUIT</a></li>
+      <li><a href="/contact/">CONTACT</a></li>
+    </ul>
+  </div>
+
+  <!-- FIRST VIEW -->
+  <div class="recruit first_view">
+    <div class="title_set">
+      <div class="title_line"></div>
+      <h1 class="title">RECRUIT</h1>
+      <span class="sub_title">採用情報</span>
+    </div>
+    <div class="vartical_bar"></div>
+  </div>
+
+  <!-- MESSAGE -->
+  <div class="content" id="message">
+    <div class="message_view content">
+      <div class="message_view">
+        <div class="title_set black">
+          <div class="title_line" style="background-color:#46FFDD;opacity:1;"></div>
+          <h2 id="js_recruit_message_title" class="title js_title">MESSAGE</h2>
+          <span class="sub_title" style="color:#000;">メッセージ</span>
+        </div>
+      </div>
+      <p class="box">
+        創業間もなく、動画制作を軸とした制作事業および世代を超えて学び実践可能な起業塾を運営し、今後は更なる事業拡大をするために共に働く仲間を募集しています。スキルを求める部分もありますが、素直で謙虚に何事にも熱中して取り組めるかどうかを重視しています。一人では解決できないことも仲間がいれば乗り越えられることができる。みなさんの可能性に期待しています。
+      </p>
+    </div>
+  </div>
+
+  <!-- PROJECT -->
+  <div class="content" id="project">
+    <div class="title_set black" style="display:block;max-width:1100px;margin:0 0 1.5rem auto;">
+      <div class="title_line" style="background-color:#46FFDD;opacity:1;margin-bottom:.5rem;"></div>
+      <h2 id="js_recruit_service_title" class="title js_title">SERVICE</h2>
+      <span class="sub_title" style="color:#000;">サービス内容</span>
+    </div>
+    <p class="caption">
+      『活きたマーケティングを提供する』<br>
+      この想いを掲げたメンバーで、制作を中心とした事業を行います。
+    </p>
+    <div class="center">
+      <div class="project_contents">
+        <a href="/services/business-investment-support/" class="project_content hover_arrow">
+          <div class="project_panel">
+            <div class="project_number">01</div>
+            <h3 class="project_title">Business investment support</h3>
+            <p class="project_caption">事業投資及び事業支援</p>
+          </div>
+          <div class="project_image">
+            <img src="/img/works/project-2.jpg" alt="事業投資及び事業支援">
+          </div>
+        </a>
+        <a href="/services/video-web-marketing/" class="project_content hover_arrow">
+          <div class="project_panel">
+            <div class="project_number">02</div>
+            <h3 class="project_title">VIDEO AND PRODUCTION</h3>
+            <p class="project_caption">動画制作事業</p>
+          </div>
+          <div class="project_image">
+            <img src="/img/works/project-1.jpg" alt="動画制作事業">
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="button_setting">
+      <a href="/services/" class="black_button">READ MORE</a>
+    </div>
+  </div>
+
+  <!-- FUTURE -->
+  <div class="content" id="future">
+    <div class="future_image"></div>
+    <div class="container-maxwidth">
+      <div class="future_paragraph">
+        <div class="title_set black not_responsible">
+          <div class="title_line" style="background-color:#46FFDD;opacity:1;"></div>
+          <h2 id="js_recruit_future_title" class="title js_title">FUTURE</h2>
+          <span class="sub_title" style="color:#000;">今後の事業展開</span>
+        </div>
+        <p class="caption" style="padding-top:14%;">
+          自社における独立支援事業から輩出された人材から、横つながりでジョイントし様々な事業事例を生み出す企業へとシフトします。今後の日本をITと教育の分野から世界と日本を結びつけるための事業を展開します。
+        </p>
+        <ul class="image_icons">
+          <li class="image_icon">
+            <div class="graph_image">
+              <img src="/img/award.png" alt="賞">
+            </div>
+            <h3 class="graph_title">総合プロデュースへの展開</h3>
+            <p class="graph_caption">複雑化する現代において、様々な角度から事象を捉え本質を突いたプロデュースをいたします。</p>
+          </li>
+          <li class="image_icon">
+            <div class="graph_image">
+              <img src="/img/award.png" alt="賞">
+            </div>
+            <h3 class="graph_title">自社サービスへの展開</h3>
+            <p class="graph_caption">制作と独立支援を元に、「想いをカタチに」します。</p>
+          </li>
+          <li class="image_icon">
+            <div class="graph_image">
+              <img src="/img/award.png" alt="賞">
+            </div>
+            <h3 class="graph_title">グローバル事業への展開</h3>
+            <p class="graph_caption">「今の時代に求められる」グローバル事業を展開いたします。</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- WELFARE -->
+  <div class="content" id="welfare">
+    <div class="container-maxwidth">
+      <div class="welfare_paragraph">
+        <div class="title_set black">
+          <div class="title_line" style="background-color:#46FFDD;opacity:1;"></div>
+          <h2 id="js_recruit_welfare_title" class="title js_title">WELFARE</h2>
+          <span class="sub_title" style="color:#000;">福利厚生</span>
+        </div>
+        <p class="caption" style="padding-top:15%;">
+          アライブマーケティングの福利厚生の目的は、社員の挑戦をサポートすることです。
+          社員が能動的に挑戦することによって、企業として成長することができます。
+          そのため、社員が自分の力を発揮していけるような環境を整えることをサポートします。
+        </p>
+        <ul class="image_icons">
+          <li class="image_icon">
+            <div class="graph_image">
+              <img src="/img/briefcase.png" alt="鞄">
+            </div>
+            <h3 class="graph_title">社員旅行</h3>
+            <p class="graph_caption">全社目標達成時に、社員全員で目標達成の喜びを分かち合うための社員旅行を行います。</p>
+          </li>
+          <li class="image_icon">
+            <div class="graph_image">
+              <img src="/img/award.png" alt="賞">
+            </div>
+            <h3 class="graph_title">賞与の充実</h3>
+            <p class="graph_caption">個々が担う業務に対しての成果を測定し、給与見直しおよび昇級・昇格チャンスがあります。</p>
+          </li>
+          <li class="image_icon">
+            <div class="graph_image">
+              <img src="/img/coffee.png" alt="コーヒー">
+            </div>
+            <h3 class="graph_title">年間休日日数</h3>
+            <p class="graph_caption">完全週休2日制(土日祝)、夏期休暇、年末年始休暇、年次有給休暇、慶弔休暇など</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="welfare_image"></div>
+  </div>
+
+  <!-- PROCESS -->
+  <div class="content" id="process">
+    <div class="title_set black" style="display:block;margin-bottom:3rem;">
+      <div class="title_line" style="background-color:#46FFDD;opacity:1;"></div>
+      <h2 id="js_recruit_process_title" class="title js_title">PROCESS</h2>
+      <span class="sub_title" style="color:#000;">選考プロセス</span>
+    </div>
+    <div class="process_detail">
+      <div class="box">
+        <h3 class="process_title">エントリー</h3>
+        <p class="process_caption">「コンタクトフォーム」からエントリーしてください。</p>
+      </div>
+      <div class="empty_arrow"></div>
+      <div class="box">
+        <h3 class="process_title">説明選考会</h3>
+        <p class="process_caption">会社の目指す理念や事業内容などについてご紹介させていただきます。※遠方の方はSkypeなどでの面談/面接も可能です。</p>
+      </div>
+      <div class="empty_arrow"></div>
+      <div class="box">
+        <h3 class="process_title">複数面接回</h3>
+        <p class="process_caption">面談・面接を通して多くの社員と会っていただきます。</p>
+      </div>
+      <div class="empty_arrow"></div>
+      <div class="box">
+        <h3 class="process_title">最終面接</h3>
+        <p class="process_caption">代表・役員による面接を行います。</p>
+      </div>
+      <div class="empty_arrow"></div>
+      <div class="box">
+        <h3 class="process_title">内々定</h3>
+        <p class="process_caption">最終面談を通過された方には内定出しをいたします。</p>
+      </div>
+      <div class="empty_arrow"></div>
+      <div class="box">
+        <h3 class="process_title">内定</h3>
+        <p class="process_caption">内定承諾をもって正式に入社が決定いたします。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div><p>Copyright ©︎ 2019 Alive Marketing. All rights reserved</p></div>
+  </footer>
+
+  <script>
+    // Header scroll
+    const header = document.getElementById('site_header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('background_header', window.scrollY > 1);
+    });
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger_menu');
+    const mobileMenu = document.getElementById('hamburger_menu_content');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      if (hamburger.classList.contains('active')) {
+        mobileMenu.style.display = 'flex';
+        mobileMenu.style.opacity = '0';
+        mobileMenu.style.transition = 'opacity .5s';
+        requestAnimationFrame(() => { mobileMenu.style.opacity = '1'; });
+      } else {
+        mobileMenu.style.opacity = '0';
+        setTimeout(() => { mobileMenu.style.display = 'none'; }, 500);
+      }
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.style.opacity = '0';
+      setTimeout(() => { mobileMenu.style.display = 'none'; }, 500);
+    }));
+
+    // Scroll animations
+    document.querySelectorAll('.js_title').forEach(el => {
+      new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { el.classList.add('active'); } });
+      }, { threshold: 0, rootMargin: '0px 0px 50px 0px' }).observe(el);
+    });
+  </script>
+</body>
+</html>

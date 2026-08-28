@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hashidumeカレー紹介動画の制作実績。こだわりぬいたカレーの紹介動画を制作しました。">
+  <title>Hashidumeカレー紹介動画 &#8211; アライブマーケティング株式会社</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: bebasneuebold;
+      src: url('/font/BebasNeueBold.woff') format('woff');
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { overflow-x: hidden; }
+    body {
+      font-family: 'Noto Sans JP','Open Sans',Helvetica Neue,Sans-serif;
+      margin: 0; padding: 0;
+      background-color: #efefef;
+      color: #090909;
+      letter-spacing: 2px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    body * { font-weight: bold; }
+    a { text-decoration: none; color: #000; }
+    h1,h2,h3,h4,h5,h6,p { margin: 0; }
+    ul { margin: 0; padding: 0; }
+    li { list-style: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ========== HEADER ========== */
+    header {
+      position: fixed; top: 0; left: 0; z-index: 10;
+      display: flex; width: 100vw; height: 120px;
+      color: #fff; align-items: center;
+      opacity: 0;
+      animation: headerIn 1.4s ease forwards;
+      transition: height .4s, background-color .4s;
+    }
+    header.background_header { height: 60px; background-color: rgba(9,9,9,.8); }
+    header a { color: #fff; }
+    .logo { font-family: bebasneuebold !important; padding: .5rem 0 0 1rem; font-size: 2.8rem; letter-spacing: -0.1em; flex-grow: 3; }
+    .logo:first-letter { color: #46FFDD; }
+    .site-logo { height: 48px; width: auto; display: block; }
+    header .menu { margin: 0 1rem; padding-top: .3rem; font-family: bebasneuebold; font-size: 1.5rem; letter-spacing: .1rem; flex-grow: 1; border-bottom: 4px solid transparent; transition: border-color .4s; white-space: nowrap; }
+    header .menu:hover { border-bottom: 4px solid #46FFDD; }
+    .hamburger_menu { position: absolute; right: 10px; display: none; flex-direction: column; align-items: center; justify-content: space-between; width: 24px; height: 18px; }
+    .hamburger_menu_line { width: 100%; height: 1.5px; background-color: #fff; transition: transform .3s ease-in-out, opacity .3s ease-in-out; }
+    .hamburger_menu.active .hamburger_menu_line:nth-child(1) { transform-origin: bottom right; transform: rotate(-45deg); }
+    .hamburger_menu.active .hamburger_menu_line:nth-child(2) { opacity: 0; }
+    .hamburger_menu.active .hamburger_menu_line:nth-child(3) { transform-origin: top right; transform: rotate(45deg); }
+    .hamburger_menu_content { position: fixed; display: none; top: 0; left: 0; z-index: 9; width: 100vw; height: 100vh; padding-top: 5rem; background-color: rgba(0,0,0,.9); justify-content: center; }
+    .hamburger_menu_content ul { width: 70%; }
+    .hamburger_menu_content li { padding: 1rem 0; font-family: bebasneuebold; font-size: 1.8rem; letter-spacing: .3rem; text-align: center; }
+    .hamburger_menu_content li a { color: #fff; }
+    @keyframes headerIn { 0% { clip-path: inset(0 0 0 100%); opacity: 0; } 100% { clip-path: inset(0); opacity: 1; } }
+
+    /* ========== FIRST VIEW ========== */
+    .first_view {
+      position: relative;
+      display: flex;
+      z-index: -2;
+      width: 100vw;
+      height: 100vh;
+      letter-spacing: .3rem;
+      color: #fff;
+      justify-content: center;
+      align-items: center;
+      background: url('/img/a_space_surrounded_by_mirrors.jpg') center/cover no-repeat;
+    }
+    .first_view::after {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-color: rgba(9,9,9,.85);
+      content: "";
+    }
+    .first_view .title_set {
+      color: #fff;
+      text-align: center;
+    }
+    .title_line {
+      display: inline-block;
+      width: 2.5rem; height: 4px;
+      background-color: #fff;
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      animation: revealTitle .8s ease 1.4s forwards;
+    }
+    .first_view .title {
+      font-family: bebasneuebold !important;
+      font-size: 7rem;
+      letter-spacing: .8rem;
+      opacity: 0;
+      animation: revealTitle .6s ease .4s forwards;
+    }
+    .first_view .sub_title {
+      display: inline-block;
+      margin-top: 1.2rem;
+      color: #fff;
+      opacity: 0;
+      animation: revealTitle 1.8s ease 1.4s forwards;
+    }
+    .vartical_bar {
+      position: absolute;
+      bottom: 0; left: calc(50% - .5px);
+      width: 1px; height: 30vh;
+      background-color: #fff;
+      opacity: 0;
+      animation: slideDown 1s ease 2s forwards;
+    }
+    @keyframes revealTitle {
+      0% { clip-path: inset(0 100% 0 0); }
+      100% { clip-path: inset(0); opacity: 1; }
+    }
+    @keyframes slideDown {
+      0% { clip-path: inset(0 0 100% 0); }
+      100% { clip-path: inset(0); opacity: 1; }
+    }
+
+    /* ========== MAIN CONTENT ========== */
+    .main_content { margin-bottom: 12rem; }
+
+    .resource_single_content {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .resource_single_image {
+      position: relative;
+      width: 80%;
+      margin: auto;
+    }
+    .resource_single_image img {
+      position: absolute;
+      top: -4rem; left: 0; right: 0;
+      z-index: -2;
+      width: 100%; height: 300%;
+    }
+    .resource_single_image::before {
+      display: block;
+      padding-top: 20%;
+      content: "";
+    }
+    .resource_single_image::after {
+      position: absolute;
+      display: block;
+      top: -4rem; left: 0; right: 0;
+      z-index: -1;
+      width: 100%; height: 300%;
+      background-color: rgba(0,0,0,.5);
+      content: "";
+    }
+
+    .resource_single_area {
+      position: relative;
+      width: 65%;
+      min-width: 230px;
+      min-height: 30rem;
+      margin: auto;
+      padding: 5rem;
+      background-color: #fff;
+    }
+    .resource_single_title { font-size: 1rem; margin-bottom: .5rem; }
+
+    .line {
+      width: 5rem; height: 3px;
+      background-color: #46FFDD;
+      margin: 1rem 0 2rem;
+    }
+
+    .resource_tags { margin-bottom: 3.4rem; }
+    .resource_tag {
+      display: inline-block;
+      padding: 3px 12px;
+      margin-right: .5rem;
+      background-color: #000;
+      border: solid 2px #000;
+      border-radius: 23px;
+      font-size: .4rem;
+      color: #46FFDD;
+      letter-spacing: .5px;
+    }
+
+    .resource_single_text { margin-bottom: 3rem; line-height: 1.5rem; }
+    .resource_single_text p { font-weight: normal; line-height: 2rem; }
+    .resource_single_text a { color: #000; }
+
+    .resource_video { margin-bottom: 2rem; }
+    .resource_video iframe { width: 100%; aspect-ratio: 16/9; border: none; }
+
+    /* ========== BACK TO ARCHIVE ========== */
+    .back_to_archive { position: relative; height: 100px; }
+
+    .back_to_archive a.archive_link {
+      position: absolute;
+      display: flex;
+      left: 80px; top: -10rem;
+      width: calc(100% - 80px); height: 80px;
+      background-color: #303030;
+      border-bottom: 8px solid transparent;
+      font-family: bebasneuebold;
+      font-size: 1.7rem;
+      text-align: center;
+      color: #fff;
+      letter-spacing: .2rem;
+      align-items: center;
+      justify-content: center;
+      transition: .3s;
+    }
+    .back_to_archive a.archive_link:hover { border-bottom: 8px solid #41D5BA; }
+
+    .back_to_archive .box {
+      position: absolute;
+      display: flex;
+      top: -10rem;
+      width: 80px; height: 80px;
+      background-color: #41D5BA;
+      align-items: center;
+      justify-content: center;
+    }
+    .back_to_archive .left { left: 0; }
+    .back_to_archive .right { right: 0; }
+    .back_to_archive .box .arrow { transform: scaleX(-1); }
+
+    /* ========== ANIMATED ARROW ========== */
+    .arrow { position: relative; z-index: 1; margin: 0 1rem; }
+    .hover_arrow .arrow { right: .6rem; }
+    .prev .arrow { right: auto; left: .6rem; transform: scaleX(-1); }
+
+    .arrow .arrow_mask_1 { position: relative; width: 80px; height: 1px; overflow: hidden; }
+    .arrow .arrow_line_1 {
+      position: absolute; left: 0; width: 50px; height: 1px;
+      background-color: #fff;
+      animation: arrow_line_1 2s linear infinite;
+    }
+    .hover_arrow .arrow .arrow_line_1 { transform: translate(20px,0); animation: none; }
+    .hover_arrow:hover .arrow .arrow_line_1 { animation: arrow_line_1 2s linear infinite; }
+
+    .arrow .arrow_mask_2 { position: absolute; right: 11px; top: -4px; width: 10px; height: 8px; overflow: hidden; }
+    .arrow .arrow_line_2 {
+      position: absolute; top: 0; width: 8px; height: 1px;
+      background-color: #fff;
+      transform-origin: bottom right; transform: rotate(-90deg);
+      animation: arrow_line_2 2s linear infinite;
+    }
+    .hover_arrow .arrow .arrow_line_2 { animation: none; }
+    .hover_arrow:hover .arrow .arrow_line_2 { animation: arrow_line_2 2s linear infinite; }
+
+    .arrow .arrow_mask_3 { position: absolute; right: 0; top: 0; width: 14px; height: 10px; overflow: hidden; }
+    .arrow .arrow_line_3 {
+      position: absolute; right: 0; top: 0; width: 14px; height: 1px;
+      background-color: #fff;
+      transform-origin: top right; transform: rotate(-14deg);
+      animation: arrow_line_3 2s linear infinite;
+    }
+    .hover_arrow .arrow .arrow_line_3 { animation: none; }
+    .hover_arrow:hover .arrow .arrow_line_3 { animation: arrow_line_3 2s linear infinite; }
+
+    .arrow .arrow_mask_4 { position: absolute; right: 0; bottom: 0; width: 14px; height: 10px; overflow: hidden; }
+    .arrow .arrow_line_4 {
+      position: absolute; right: 0; bottom: 0; width: 14px; height: 1px;
+      background-color: #fff;
+      transform-origin: bottom right; transform: rotate(14deg);
+      animation: arrow_line_4 2s linear infinite;
+    }
+    .hover_arrow .arrow .arrow_line_4 { animation: none; }
+    .hover_arrow:hover .arrow .arrow_line_4 { animation: arrow_line_4 2s linear infinite; }
+
+    @keyframes arrow_line_1 {
+      0%   { transform: translate(-20px,0); }
+      8%   { transform: translate(20px,0); }
+      45%  { transform: translate(15px,0); }
+      50%  { transform: translate(20px,0); }
+      70%  { transform: translate(100px,0); }
+      100% { transform: translate(100px,0); }
+    }
+    @keyframes arrow_line_2 {
+      0%   { transform: rotate(-90deg) translate(10px,0); }
+      5%   { transform: rotate(-90deg) translate(10px,0); }
+      10%  { transform: rotate(-90deg) translate(0,0); }
+      60%  { transform: rotate(-90deg) translate(0,0); }
+      65%  { transform: rotate(-90deg) translate(-10px,0); }
+      100% { transform: rotate(-90deg) translate(-10px,0); }
+    }
+    @keyframes arrow_line_3 {
+      0%   { transform: rotate(-14deg) translate(-18px,0); }
+      10%  { transform: rotate(-14deg) translate(-18px,0); }
+      15%  { transform: rotate(-14deg) translate(0,0); }
+      65%  { transform: rotate(-14deg) translate(0,0); }
+      70%  { transform: rotate(-14deg) translate(18px,0); }
+      100% { transform: rotate(-14deg) translate(18px,0); }
+    }
+    @keyframes arrow_line_4 {
+      0%   { transform: rotate(14deg) translate(18px,0); }
+      15%  { transform: rotate(14deg) translate(18px,0); }
+      20%  { transform: rotate(14deg) translate(0,0); }
+      70%  { transform: rotate(14deg) translate(0,0); }
+      75%  { transform: rotate(14deg) translate(-18px,0); }
+      100% { transform: rotate(14deg) translate(-18px,0); }
+    }
+
+    /* ========== FOOTER ========== */
+    footer { display: flex; height: 220px; padding: 1.4rem 0; background-color: #fff; font-size: 12px; letter-spacing: 1px; color: #444; text-align: center; justify-content: space-around; flex-direction: column; }
+
+    /* ========== DESKTOP ========== */
+    @media (min-width: 769px) {
+      .resource_single_area { max-width: 1100px; margin-bottom: 7rem; }
+      .back_to_archive { width: calc(65% - 10rem); max-width: 900px; height: 0; margin: 0 auto; }
+    }
+
+    /* ========== MOBILE ========== */
+    @media (max-width: 768px) {
+      .site-logo { height: 34px; }
+      header { height: 3.5rem; background-color: #444; }
+      .logo { padding-top: 7px; background-color: #444; font-size: 2rem; }
+      header .menu { display: none; }
+      .hamburger_menu { display: flex; }
+      header.background_header { height: 3.5rem !important; background-color: #444 !important; }
+      .first_view .title { font-size: 4rem; letter-spacing: .4rem; }
+      .resource_single_image { width: 100%; }
+      .resource_single_image::before { padding-top: 40%; }
+      .resource_single_area { width: 90%; max-width: 382.5px; padding: 2.4rem; margin-bottom: 3rem; }
+      .back_to_archive a.archive_link { left: 60px; width: calc(100% - 60px); font-size: 1.1rem; top: -8rem; height: 60px; }
+      .back_to_archive .box { width: 60px; height: 60px; top: -8rem; }
+    }
+  </style>
+</head>
+<body>
+  <header id="site_header">
+    <div class="logo"><a href="/"><img src="/img/logo.png" alt="ALIVE" class="site-logo" onerror="this.style.display='none';this.nextSibling.style.display='inline';"><span style="display:none;color:#fff;font-family:bebasneuebold;font-size:2.8rem;letter-spacing:-0.1em;">ALIVE</span></a></div>
+    <div class="menu"><a href="/services/">SERVICE</a></div>
+    <div class="menu"><a href="/works/">WORKS</a></div>
+    <div class="menu"><a href="/about/">ABOUT US</a></div>
+    <div class="menu"><a href="/recruit/">RECRUIT</a></div>
+    <div class="menu"><a href="/contact/">CONTACT</a></div>
+    <div class="hamburger_menu" id="hamburger_menu">
+      <div class="hamburger_menu_line"></div>
+      <div class="hamburger_menu_line"></div>
+      <div class="hamburger_menu_line"></div>
+    </div>
+  </header>
+  <div class="hamburger_menu_content" id="hamburger_menu_content">
+    <ul>
+      <li><a href="/services/">SERVICE</a></li>
+      <li><a href="/works/">WORKS</a></li>
+      <li><a href="/about/">ABOUT US</a></li>
+      <li><a href="/recruit/">RECRUIT</a></li>
+      <li><a href="/contact/">CONTACT</a></li>
+    </ul>
+  </div>
+
+  <div class="first_view">
+    <div class="title_set">
+      <div class="title_line"></div>
+      <h1 class="title">WORKS</h1>
+      <span class="sub_title">ワーク一覧</span>
+    </div>
+    <div class="vartical_bar"></div>
+  </div>
+
+  <div class="main_content">
+    <div class="resource_single_content">
+
+      <div class="resource_single_image">
+        <img src="/img/works/works3.jpg" alt="Hashidumeカレー紹介動画">
+      </div>
+
+      <div class="resource_single_panel"></div>
+
+      <div class="resource_single_area" id="article">
+        <h1 class="resource_single_title">Hashidumeカレー紹介動画</h1>
+        <div class="line"></div>
+        <div class="resource_tags">
+          <span class="resource_tag">動画</span>
+        </div>
+        <div class="resource_single_text">
+          <p>こだわりぬいたカレーの紹介動画。イメージとして訴求するため、HPの背景動画として使用。</p>
+        </div>
+        <div class="resource_video">
+          <iframe src="https://player.vimeo.com/video/359680975" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="back_to_archive">
+        <div class="box left">
+          <div class="arrow">
+            <div class="arrow_mask_1"><div class="arrow_line_1"></div></div>
+            <div class="arrow_mask_2"><div class="arrow_line_2"></div></div>
+            <div class="arrow_mask_3"><div class="arrow_line_3"></div></div>
+            <div class="arrow_mask_4"><div class="arrow_line_4"></div></div>
+          </div>
+        </div>
+        <a class="archive_link" href="/works/">BACK TO WORKS</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div><p>Copyright &#169; 2019 Alive Marketing. All rights resorved</p></div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger_menu');
+    const menu = document.getElementById('hamburger_menu_content');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    });
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('site_header');
+      if (window.scrollY > 50) { header.classList.add('background_header'); }
+      else { header.classList.remove('background_header'); }
+    });
+  </script>
+</body>
+</html>

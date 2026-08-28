@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="アライブマーケティング株式会社は、「活きたマーケティングを創造する」をミッションに、企業向け動画サービス・LP制作・創業支援・事業投資の4つの事業を軸に展開するマーケティング会社です。">
+  <meta property="og:title" content="アライブマーケティング株式会社">
+  <meta property="og:description" content="アライブマーケティング株式会社は、動画制作を軸としたマーケティング支援と、成長企業への事業投資・事業支援を行う会社です。">
+  <meta property="og:type" content="website">
+  <title>アライブマーケティング株式会社</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+  <style>
+    /* =============================================
+       BASE
+       ============================================= */
+    @font-face {
+      font-family: bebasneuebold;
+      src: url('/font/BebasNeueBold.woff') format('woff');
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { overflow-x: hidden; }
+    body {
+      font-family: 'Noto Sans JP', 'Open Sans', Helvetica Neue, Sans-serif;
+      padding: 0;
+      margin: 0 auto;
+      background-color: #090909;
+      color: #fff;
+      letter-spacing: 2px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    body * { font-weight: bold; }
+
+    a { text-decoration: none; color: #000; }
+
+    h1, h2, h3, h4, h5, h6, p { margin: 0; }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li { list-style-type: none; }
+
+    div {
+      max-width: 100%;
+      word-wrap: break-word;
+    }
+
+    /* =============================================
+       PARTICLES BACKGROUND
+       ============================================= */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: -1;
+    }
+
+    #particles-js canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    /* =============================================
+       TYPOGRAPHY
+       ============================================= */
+    .title {
+      position: relative;
+      font-family: bebasneuebold !important;
+      font-size: 7rem;
+      line-height: 1;
+      letter-spacing: .5rem;
+      /* scroll animation start state */
+      -webkit-clip-path: inset(0 100% 0 0);
+      clip-path: inset(0 100% 0 0);
+      transition: .6s;
+      transition-delay: .7s;
+    }
+
+    .title.active {
+      -webkit-clip-path: inset(0);
+      clip-path: inset(0);
+      transition: .6s;
+      transition-delay: .4s;
+    }
+
+    .line {
+      width: 25%;
+      height: 3px;
+      margin-top: 5%;
+      border: none;
+      border-top: solid 6px #46FFDD;
+    }
+
+    .sub_title {
+      position: relative;
+      font-size: 12px;
+      color: #46FFDD;
+      font-weight: bold;
+      letter-spacing: .1rem;
+    }
+
+    .ellipsis_text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .cover_image_parent img { object-fit: cover; }
+
+    .js-text-overflow { overflow: hidden; }
+
+    .flex_box { display: flex; }
+
+    /* =============================================
+       ARROW COMPONENT
+       ============================================= */
+    .arrow {
+      position: relative;
+      z-index: 1;
+      margin: 0 1rem;
+    }
+
+    .arrow .arrow_mask_1 {
+      position: relative;
+      width: 80px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .arrow .arrow_line_1 {
+      position: absolute;
+      left: 0;
+      width: 50px;
+      height: 1px;
+      background-color: #fff;
+      animation: arrow_line_1 2s linear infinite;
+    }
+
+    .arrow .arrow_mask_2 {
+      position: absolute;
+      right: 11px;
+      top: -4px;
+      width: 10px;
+      height: 8px;
+      overflow: hidden;
+    }
+    .arrow .arrow_line_2 {
+      position: absolute;
+      top: 0;
+      width: 8px;
+      height: 1px;
+      background-color: #fff;
+      transform-origin: bottom right;
+      transform: rotate(-90deg);
+      animation: arrow_line_2 2s linear infinite;
+    }
+
+    .arrow .arrow_mask_3 {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 14px;
+      height: 10px;
+      overflow: hidden;
+    }
+    .arrow .arrow_line_3 {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 14px;
+      height: 1px;
+      background-color: #fff;
+      transform-origin: top right;
+      transform: rotate(-14deg);
+      animation: arrow_line_3 2s linear infinite;
+    }
+
+    .arrow .arrow_mask_4 {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 14px;
+      height: 10px;
+      overflow: hidden;
+    }
+    .arrow .arrow_line_4 {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 14px;
+      height: 1px;
+      background-color: #fff;
+      transform-origin: bottom right;
+      transform: rotate(14deg);
+      animation: arrow_line_4 2s linear infinite;
+    }
+
+    @keyframes arrow_line_1 {
+      0%   { transform: translate(-20px, 0); }
+      8%   { transform: translate(20px, 0); }
+      45%  { transform: translate(15px, 0); }
+      50%  { transform: translate(20px, 0); }
+      70%  { transform: translate(100px, 0); }
+      100% { transform: translate(100px, 0); }
+    }
+    @keyframes arrow_line_2 {
+      0%   { transform: rotate(-90deg) translate(10px, 0); }
+      5%   { transform: rotate(-90deg) translate(10px, 0); }
+      10%  { transform: rotate(-90deg) translate(0, 0); }
+      60%  { transform: rotate(-90deg) translate(0, 0); }
+      65%  { transform: rotate(-90deg) translate(-10px, 0); }
+      100% { transform: rotate(-90deg) translate(-10px, 0); }
+    }
+    @keyframes arrow_line_3 {
+      0%   { transform: rotate(-14deg) translate(-18px, 0); }
+      10%  { transform: rotate(-14deg) translate(-18px, 0); }
+      15%  { transform: rotate(-14deg) translate(0, 0); }
+      65%  { transform: rotate(-14deg) translate(0, 0); }
+      70%  { transform: rotate(-14deg) translate(18px, 0); }
+      100% { transform: rotate(-14deg) translate(18px, 0); }
+    }
+    @keyframes arrow_line_4 {
+      0%   { transform: rotate(14deg) translate(18px, 0); }
+      15%  { transform: rotate(14deg) translate(18px, 0); }
+      20%  { transform: rotate(14deg) translate(0, 0); }
+      70%  { transform: rotate(14deg) translate(0, 0); }
+      75%  { transform: rotate(14deg) translate(-18px, 0); }
+      100% { transform: rotate(14deg) translate(-18px, 0); }
+    }
+
+    /* =============================================
+       LINK OBJECT (arrow + label)
+       ============================================= */
+    .link_object {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .8s;
+    }
+    .link_object:hover { transform: translateX(30px); }
+
+    .arrow_button {
+      margin: 0 1rem;
+      font-family: bebasneuebold !important;
+      color: #46FFDD;
+      text-decoration: none;
+      font-size: 20px;
+      letter-spacing: 3px;
+    }
+
+    /* =============================================
+       HEADER
+       ============================================= */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      display: flex;
+      width: 100vw;
+      height: 120px;
+      color: #fff;
+      align-items: center;
+      opacity: 0;
+      animation: headerIn 1.4s ease forwards;
+      transition: height .4s, background-color .4s;
+    }
+
+    header.background_header {
+      height: 60px;
+      background-color: rgba(9, 9, 9, .8);
+    }
+
+    header a { color: #fff; }
+
+    .logo {
+      font-family: bebasneuebold !important;
+      padding-top: .5rem;
+      padding-left: 1rem;
+      font-size: 2.8rem;
+      letter-spacing: -0.1em;
+      flex-grow: 3;
+      display: flex;
+      align-items: center;
+    }
+    .site-logo { height: 48px; width: auto; display: block; }
+    .logo:first-letter { color: #46FFDD; }
+
+    /* SERVICE セクション追加ラベル */
+    .service_label {
+      font-family: bebasneuebold !important;
+      font-size: 2.5rem; color: #46FFDD;
+      letter-spacing: .3rem; margin-bottom: .3rem;
+    }
+
+    /* WORKS 各画像の object-position */
+    .works-item-1 img { object-position: center 20%; }
+    .works-item-2 img { object-position: center 30%; }
+    .works-item-3 img { object-position: center center; }
+    .works-item-4 img { object-position: center top; }
+
+    /* COMPANY OVERVIEW レイアウト改善 */
+    #company_overview .flex_box { gap: 0; align-items: flex-start; flex-wrap: wrap; }
+    .company_overview_left  { position: relative; width: 50%; background-color: #F2F2F2; color: #000; text-align: center; }
+    .company_overview_map   { flex: 1; min-width: 280px; margin-top: 130px; }
+    .company_overview_map iframe { width: 100%; height: 650px; border: 0; display: block; filter: invert(90%) hue-rotate(180deg); }
+
+    header .menu {
+      margin: 0 1rem;
+      padding-top: .3rem;
+      font-family: bebasneuebold;
+      font-size: 1.5rem;
+      letter-spacing: .1rem;
+      flex-grow: 1;
+      border-bottom: 4px solid transparent;
+      transition: border-color .4s;
+      white-space: nowrap;
+    }
+
+    header .menu:hover { border-bottom: 4px solid #46FFDD; }
+
+    .hamburger_menu {
+      position: absolute;
+      right: 10px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+    }
+
+    .hamburger_menu_line {
+      width: 100%;
+      height: 1.5px;
+      background-color: #fff;
+      transition: transform .3s ease-in-out, opacity .3s ease-in-out;
+    }
+
+    .hamburger_menu.active .hamburger_menu_line:nth-child(1) {
+      transform-origin: bottom right;
+      transform: rotate(-45deg);
+    }
+    .hamburger_menu.active .hamburger_menu_line:nth-child(2) { opacity: 0; }
+    .hamburger_menu.active .hamburger_menu_line:nth-child(3) {
+      transform-origin: top right;
+      transform: rotate(45deg);
+    }
+
+    .hamburger_menu_content {
+      position: fixed;
+      display: none;
+      top: 0;
+      left: 0;
+      z-index: 9;
+      width: 100vw;
+      height: 100vh;
+      padding-top: 5rem;
+      background-color: rgba(0, 0, 0, .9);
+      justify-content: center;
+    }
+
+    .hamburger_menu_content ul {
+      width: 70%;
+      padding: 0;
+    }
+
+    .hamburger_menu_content ul li {
+      padding: 1rem 0;
+      font-family: bebasneuebold;
+      font-size: 1.8rem;
+      letter-spacing: .3rem;
+      text-align: center;
+    }
+
+    .hamburger_menu_content ul li a { color: #fff; }
+
+    @keyframes headerIn {
+      0% {
+        -webkit-clip-path: inset(0 0 0 100%);
+        clip-path: inset(0 0 0 100%);
+        opacity: 0;
+      }
+      100% {
+        -webkit-clip-path: inset(0);
+        clip-path: inset(0);
+        opacity: 1;
+      }
+    }
+
+    /* =============================================
+       SECTIONS COMMON
+       ============================================= */
+    .content {
+      z-index: 0;
+      margin-right: auto;
+      margin-bottom: 14rem;
+      margin-left: auto;
+    }
+
+    .title_set {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      margin-top: 12rem;
+    }
+
+    /* =============================================
+       FIRST VIEW
+       ============================================= */
+    #first_view {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      margin: auto;
+      margin-bottom: 0 !important;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .video_wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+    }
+
+    .video_wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #first_view::before {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: 1;
+      content: "";
+      animation: firstViewOverlay 3s ease forwards;
+    }
+
+    @keyframes firstViewOverlay {
+      0%   { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { opacity: .85; }
+    }
+
+    .content_box {
+      position: absolute;
+      top: 30%;
+      width: 100vw;
+      line-height: 1.3;
+    }
+
+    .welcome {
+      font-family: bebasneuebold !important;
+      font-size: 3vw;
+      letter-spacing: .2rem;
+    }
+
+    #top_first_view_welcome {
+      opacity: 0;
+      animation: revealText 2s ease forwards;
+    }
+
+    #top_first_view_levias {
+      font-family: bebasneuebold !important;
+      font-size: 10vw;
+      opacity: 0;
+      animation: revealText 2s ease forwards .5s;
+    }
+
+    #top_first_view_levias:first-letter { color: #46FFDD; }
+
+    #top_first_view_link_object {
+      opacity: 0;
+      animation: revealText 2s ease forwards 1s;
+      margin-top: 1rem;
+    }
+
+    @keyframes revealText {
+      0% {
+        -webkit-clip-path: inset(0 100% 0 0);
+        clip-path: inset(0 100% 0 0);
+      }
+      100% {
+        -webkit-clip-path: inset(0);
+        clip-path: inset(0);
+        opacity: 1;
+      }
+    }
+
+    .not_responsible { display: flex; }
+    .responsible { display: none; }
+
+    /* =============================================
+       PROJECT
+       ============================================= */
+    #project {
+      position: relative;
+      width: 100vw;
+      color: #fff;
+    }
+
+    #project .title_set {
+      display: block;
+      padding-left: 5%;
+    }
+
+    .project_title_wrap {
+      display: flex;
+      align-items: baseline;
+    }
+
+    .intro {
+      padding-left: 2rem;
+      font-family: bebasneuebold;
+      font-size: 20px;
+      letter-spacing: 4px;
+    }
+
+    .project_contents {
+      display: flex;
+      max-width: 1100px;
+      width: 100vw;
+      padding: 0 2rem;
+      height: auto;
+      margin: 4rem auto;
+      line-height: 1.3;
+      align-items: center;
+    }
+
+    .project_content {
+      position: relative;
+      width: calc(100% / 3 - 10px);
+      margin: 10px;
+      flex-grow: 1;
+    }
+
+    .project_content:nth-of-type(2) { margin-top: 6% !important; }
+    .project_content:nth-of-type(3) { margin-top: 3% !important; }
+
+    .project_content::before {
+      display: block;
+      padding-top: 140%;
+      content: "";
+    }
+
+    .project_content img {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project_content::after {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .85;
+      background-color: #000;
+      content: "";
+    }
+
+    .project_content .flex_box {
+      position: absolute;
+      bottom: 5%;
+      left: 10%;
+      z-index: 3;
+      width: 80%;
+      height: 90%;
+      text-align: left;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .top_each_link {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+    }
+
+    .project_number {
+      font-family: bebasneuebold;
+      font-size: 4rem;
+      color: #46FFDD;
+    }
+
+    .project_title { font-size: 18px; line-height: 1.8rem; }
+
+    #project .line { margin: 1rem 0; }
+
+    .project_content:hover .line { width: 85%; transition: width .4s; }
+
+    .project_text { font-weight: normal; }
+
+    .js_project_content {
+      -webkit-clip-path: inset(0 100% 0 0);
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path .5s;
+    }
+
+    .js_project_content:first-child { transition-delay: .6s; }
+    .js_project_content:last-child  { transition-delay: .8s; }
+
+    .js_project_content.active {
+      -webkit-clip-path: inset(0);
+      clip-path: inset(0);
+    }
+
+    #project .link_object { text-align: center; }
+
+    /* =============================================
+       WORKS (RESOURCES)
+       ============================================= */
+    #resources {
+      width: 100vw;
+      color: #fff;
+    }
+
+    #resources .title_set {
+      display: block;
+      padding-left: 5%;
+    }
+
+    .resource_contents {
+      display: flex;
+      width: 100vw;
+      max-width: 1400px;
+      padding: 1%;
+      margin: 4rem auto;
+      line-height: 1.3;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .resource_contents .wrapper {
+      position: relative;
+      width: 24%;
+      margin: 0.5%;
+    }
+
+    .resource_contents .wrapper::before {
+      display: block;
+      padding-top: 100%;
+      content: "";
+    }
+
+    .resource_content {
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      width: 100%;
+      height: 100%;
+      text-align: left;
+      transition: .4s;
+    }
+
+    .resource_content {
+      background-color: rgba(9,9,9,.85);
+    }
+
+    #resources .box {
+      position: absolute;
+      top: 15%; left: 15%;
+      width: 70%; height: 70%;
+      border: solid #fff 2px;
+      overflow: hidden;
+      transition: border-color .2s, transform .2s;
+    }
+
+    #resources .box img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; margin: 0; z-index: 0;
+    }
+
+    #resources .box::after {
+      content: ""; position: absolute; inset: 0;
+      background-color: rgba(0,0,0,.5); z-index: 1;
+    }
+
+    .box-text {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column;
+      justify-content: space-between;
+      padding: 10%; height: 100%;
+    }
+
+    .resource_content:hover .box {
+      border-color: #46FFDD !important;
+      transform: scale(1.05);
+    }
+
+    .resource_title {
+      font-size: 18px;
+      line-height: 1.8rem;
+      word-break: break-all;
+      color: #fff;
+    }
+
+    .resource_content:hover .resource_title { color: #46FFDD !important; }
+
+    .resource_tag {
+      display: inline-block;
+      padding: 3px 12px;
+      margin: 5% 5% 0 0;
+      border: solid 2px #46FFDD;
+      border-radius: 20px;
+      font-size: .4rem;
+      color: #46FFDD;
+      font-weight: normal;
+      letter-spacing: .5px;
+    }
+
+    .js_resource_content {
+      -webkit-clip-path: inset(0 100% 0 0);
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path .5s;
+    }
+
+    .js_resource_content:nth-of-type(1) { transition-delay: .6s; }
+    .js_resource_content:nth-of-type(2) { transition-delay: 1s; }
+    .js_resource_content:nth-of-type(3) { transition-delay: .8s; }
+    .js_resource_content:nth-of-type(4) { transition-delay: 1.4s; }
+
+    .js_resource_content.active {
+      -webkit-clip-path: inset(0);
+      clip-path: inset(0);
+    }
+
+    /* =============================================
+       COMPANY OVERVIEW
+       ============================================= */
+    #company_overview {
+      position: relative;
+      width: 100vw;
+      max-width: 1400px;
+      margin-bottom: 20rem;
+    }
+
+    #company_overview .title_set { display: block; padding-left: 5%; margin-bottom: 3rem; }
+
+    #company_overview .flex_box { align-items: flex-start; }
+
+    .company_overview_left {
+      position: relative;
+      width: 50%;
+      margin-bottom: 7.5%;
+      padding-bottom: 5rem;
+      background-color: #F2F2F2;
+      text-align: center;
+      color: black;
+    }
+
+    #js_company_overview_left {
+      -webkit-clip-path: inset(0 100% 0 0);
+      clip-path: inset(0 100% 0 0);
+    }
+
+    #js_company_overview_left.active {
+      animation: slideInLeft .5s ease .5s forwards;
+    }
+
+    @keyframes slideInLeft {
+      0% {
+        -webkit-clip-path: inset(0 100% 0 0);
+        clip-path: inset(0 100% 0 0);
+      }
+      99.9% {
+        -webkit-clip-path: inset(0);
+        clip-path: inset(0);
+      }
+      100% {
+        -webkit-clip-path: none;
+        clip-path: none;
+      }
+    }
+
+    .company_overview_right {
+      position: absolute;
+      display: flex;
+      bottom: -15%;
+      right: -100%;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .company_overview_right iframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    #js_company_overview_right {
+      -webkit-clip-path: inset(0 0 100% 0);
+      clip-path: inset(0 0 100% 0);
+      transition: clip-path .6s 1.5s;
+    }
+
+    #js_company_overview_right.active {
+      -webkit-clip-path: inset(0);
+      clip-path: inset(0);
+    }
+
+    #company_overview table {
+      display: inline-block;
+      width: 80%;
+      margin: 16% auto;
+      color: rgba(0, 0, 0, .95);
+      text-align: left;
+    }
+
+    #company_overview td {
+      padding: 1rem 1rem 1rem 0;
+    }
+
+    #company_overview td.green_color {
+      width: 8em;
+      font-size: 1rem;
+      text-align: left;
+      vertical-align: top;
+      color: #46FFDD;
+    }
+
+    /* Override for table — text on light bg */
+    #company_overview table td { color: rgba(0,0,0,.85); }
+    #company_overview table td.green_color { color: #2abeaa; }
+
+    #company_overview .link_object {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 1.5rem 3rem;
+      background-color: #1C1C1C;
+      z-index: 10;
+    }
+
+    #company_overview .link_object .arrow_button { color: #46FFDD; }
+
+    /* =============================================
+       CONTACT
+       ============================================= */
+    #contact {
+      display: flex;
+      width: 100vw;
+      min-height: 300px;
+      align-items: center;
+    }
+
+    .contact_content {
+      margin: auto;
+      text-align: center;
+    }
+
+    #contact .title_set { margin-left: 0; }
+
+    .contact_button a {
+      display: inline-block;
+      padding: 30px 60px;
+      margin-top: 3rem;
+      border: solid 2px #46FFDD;
+      font-size: 1.6em;
+      color: #46FFDD;
+      letter-spacing: .5px;
+      transition: background-color .3s, color .3s;
+    }
+
+    .contact_button a:hover {
+      background-color: #46FFDD;
+      color: #090909;
+    }
+
+    /* =============================================
+       FOOTER
+       ============================================= */
+    footer {
+      display: flex;
+      height: 220px;
+      padding: 1.4rem 0;
+      background-color: #fff;
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: #444;
+      text-align: center;
+      justify-content: space-around;
+      flex-direction: column;
+    }
+
+    footer a { color: #444; }
+
+    /* =============================================
+       RESPONSIVE — MOBILE (≤768px)
+       ============================================= */
+    @media (max-width: 768px) {
+      header {
+        position: fixed;
+        top: 0; left: 0;
+        height: 3.5rem;
+        background-color: #444;
+      }
+
+      .logo {
+        padding-top: 7px;
+        background-color: #444;
+        font-size: 2rem;
+      }
+
+      header .menu { display: none; }
+
+      .hamburger_menu {
+        display: flex;
+        position: absolute;
+        right: 10px;
+      }
+      header.background_header { height: 3.5rem !important; background-color: #444 !important; }
+
+      .welcome { font-size: 1.5rem; }
+
+      #top_first_view_levias { font-size: 5rem; margin: 0 auto 1.5rem; }
+
+      .project_contents {
+        display: block;
+        padding: 0;
+      }
+
+      .project_content {
+        width: 100%;
+        max-width: none;
+        margin: 1rem 0;
+      }
+
+      .project_content:nth-of-type(2),
+      .project_content:nth-of-type(3) { margin-top: 1rem !important; }
+
+      .project_title_wrap { align-items: center; flex-direction: column; }
+
+      .intro { padding-left: 0; padding-top: .4rem; font-size: 14px; letter-spacing: 2px; }
+
+      .resource_contents .wrapper { width: 48.5%; margin: .75%; }
+
+      #resources .box {
+        left: 8%; top: 8%;
+        width: 84%; height: 84%;
+        padding: 8%;
+      }
+
+      #resources .resource_title {
+        font-size: .8rem;
+        line-height: 1.1rem;
+        font-weight: normal;
+      }
+
+      /* ---- COMPANY OVERVIEW (mobile) ---- */
+      #company_overview .flex_box { flex-direction: column; gap: 0; }
+
+      .company_overview_left {
+        width: 100%;
+        padding-bottom: 2rem;
+        margin-bottom: 0;
+      }
+
+      #company_overview .link_object {
+        position: static;
+        margin: 1rem auto 1.5rem;
+        background-color: #1C1C1C;
+        padding: 1rem 2rem;
+      }
+
+      #company_overview table { width: 90%; margin: 8% auto; }
+
+      #company_overview td {
+        display: block;
+        width: 100%;
+        padding: 0 0 .4rem 0;
+      }
+
+      #company_overview td.green_color {
+        width: 8em;
+        padding: .7rem 0;
+      }
+
+      #company_overview td:nth-of-type(2n) {
+        border-bottom: solid 1px rgba(0,0,0,.15);
+      }
+
+      /* 地図は全幅・縦積み */
+      .company_overview_map {
+        width: 100%;
+        min-width: unset;
+      }
+
+      .company_overview_map iframe {
+        height: 280px;
+      }
+
+      .content { margin-bottom: 8rem; }
+
+      #company_overview { margin-bottom: 8rem; }
+
+      .contact_button a {
+        padding: 20px 40px;
+        font-size: 14px;
+      }
+
+      .service_label { font-size: 1.6rem; }
+
+      .not_responsible { display: none; }
+      .responsible { display: flex; }
+
+      .site-logo { height: 34px; }
+
+      footer { height: 200px; font-size: .5rem; }
+      #company_overview .title { font-size: 2.2rem; letter-spacing: .2rem; }
+      #resources .title { font-size: 3rem; letter-spacing: .2rem; }
+      #project .title { font-size: 3rem; letter-spacing: .2rem; }
+      #contact .title { font-size: 2.2rem; letter-spacing: .2rem; }
+    }
+
+    /* ---- TABLET (769px ~ 1024px) ---- */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .welcome { font-size: 2vw; }
+
+      #top_first_view_levias { font-size: 8vw; }
+
+
+      .project_contents { padding: 0 1rem; }
+
+      .project_content { width: calc(50% - 20px); }
+
+      .project_content:nth-of-type(2) { margin-top: 4% !important; }
+      .project_content:nth-of-type(3) { margin-top: 0 !important; }
+
+      .resource_contents .wrapper { width: 48%; margin: 1%; }
+
+      #company_overview .flex_box { flex-direction: column; }
+
+      .company_overview_left { width: 100%; }
+
+      .company_overview_map { width: 100%; }
+
+      .company_overview_map iframe { height: 350px; }
+
+      #company_overview .link_object {
+        position: static;
+        margin: 1rem auto 1.5rem;
+        background-color: #1C1C1C;
+        padding: 1rem 2rem;
+      }
+
+      .title { font-size: 5rem; }
+      #company_overview .title { font-size: 2.2rem; letter-spacing: .2rem; }
+      #resources .title { font-size: 3rem; letter-spacing: .2rem; }
+      #project .title { font-size: 3rem; letter-spacing: .2rem; }
+      #contact .title { font-size: 2.2rem; letter-spacing: .2rem; }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header id="site_header">
+    <div class="logo">
+      <a href="/"><img src="/img/logo.png" alt="ALIVE" class="site-logo" onerror="this.style.display='none';this.nextSibling.style.display='inline';"><span style="display:none;color:#fff;font-family:bebasneuebold;font-size:2.8rem;letter-spacing:-0.1em;">ALIVE</span></a>
+    </div>
+    <div class="menu"><a href="/services/">SERVICE</a></div>
+    <div class="menu"><a href="/works/">WORKS</a></div>
+    <div class="menu"><a href="/about/">ABOUT US</a></div>
+    <div class="menu"><a href="/recruit/">RECRUIT</a></div>
+    <div class="menu"><a href="/contact/">CONTACT</a></div>
+    <div class="hamburger_menu" id="hamburger_menu">
+      <div class="hamburger_menu_line"></div>
+      <div class="hamburger_menu_line"></div>
+      <div class="hamburger_menu_line"></div>
+    </div>
+  </header>
+
+  <!-- モバイルメニュー -->
+  <div class="hamburger_menu_content" id="hamburger_menu_content">
+    <ul>
+      <li><a href="/services/">SERVICE</a></li>
+      <li><a href="/works/">WORKS</a></li>
+      <li><a href="/about/">ABOUT US</a></li>
+      <li><a href="/recruit/">RECRUIT</a></li>
+      <li><a href="/contact/">CONTACT</a></li>
+    </ul>
+  </div>
+
+  <!-- ============ FIRST VIEW ============ -->
+  <div class="content" id="first_view">
+    <div class="video_wrap">
+      <video src="https://alivemarketing.co.jp/wp-content/themes/levias/video/shutterstock_v6365579.mp4"
+             autoplay loop muted playsinline></video>
+    </div>
+    <div class="content_box">
+      <div class="welcome" id="top_first_view_welcome">WELCOME TO</div>
+      <h1 id="top_first_view_levias">Alive marketing</h1>
+      <div class="link_object" id="top_first_view_link_object">
+        <div class="arrow">
+          <div class="arrow_mask_1"><div class="arrow_line_1"></div></div>
+          <div class="arrow_mask_2"><div class="arrow_line_2"></div></div>
+          <div class="arrow_mask_3"><div class="arrow_line_3"></div></div>
+          <div class="arrow_mask_4"><div class="arrow_line_4"></div></div>
+        </div>
+        <a href="#company_overview" class="arrow_button">DISCOVER Alive marketing</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PROJECT ============ -->
+  <div class="content" id="project">
+    <div class="title_set">
+      <div class="project_title_wrap">
+        <h2 class="title" id="js_project_title">SERVICE</h2>
+        <p class="intro">- INTRODUCTION OF OUR SERVICE -</p>
+      </div>
+    </div>
+    <ul class="project_contents">
+
+      <li class="project_content js_project_content">
+        <a class="top_each_link cover_image_parent" href="/services/video-web-marketing/">
+          <img src="/img/services/service1.jpg" alt="動画制作事業">
+          <div class="flex_box">
+            <div class="project_number">01</div>
+            <h3 class="project_title js-text-overflow">動画制作事業 / VIDEO AND PRODUCTION</h3>
+            <div class="line"></div>
+            <p class="project_text">動画を中心としたマーケティング支援事業</p>
+          </div>
+        </a>
+      </li>
+
+      <li class="project_content js_project_content">
+        <a class="top_each_link cover_image_parent" href="/services/business-investment-support/">
+          <img src="/img/services/service2.jpg" alt="事業投資及び事業支援">
+          <div class="flex_box">
+            <div class="project_number">02</div>
+            <h3 class="project_title js-text-overflow">事業投資及び事業支援 / Business investment support</h3>
+            <div class="line"></div>
+            <p class="project_text">事業の経営に直接関与し、企業価値を高める</p>
+          </div>
+        </a>
+      </li>
+
+    </ul>
+
+    <div class="link_object not_responsible">
+      <div class="arrow">
+        <div class="arrow_mask_1"><div class="arrow_line_1"></div></div>
+        <div class="arrow_mask_2"><div class="arrow_line_2"></div></div>
+        <div class="arrow_mask_3"><div class="arrow_line_3"></div></div>
+        <div class="arrow_mask_4"><div class="arrow_line_4"></div></div>
+      </div>
+      <a href="/services/" class="arrow_button">READ MORE PROJECT</a>
+    </div>
+    <div class="link_object responsible">
+      <div class="arrow">
+        <div class="arrow_mask_1"><div class="arrow_line_1"></div></div>
+        <div class="arrow_mask_2"><div class="arrow_line_2"></div></div>
+        <div class="arrow_mask_3"><div class="arrow_line_3"></div></div>
+        <div class="arrow_mask_4"><div class="arrow_line_4"></div></div>
+      </div>
+      <a href="/services/" class="arrow_button">READ MORE</a>
+    </div>
+  </div>
+
+  <!-- ============ WORKS ============ -->
+  <div class="content" id="resources">
+    <div class="title_set">
+      <h2 class="title" id="js_resource_title">WORKS</h2>
+    </div>
+    <div class="center">
+      <ul class="resource_contents">
+
+        <li class="wrapper js_resource_content works-item-1">
+          <a href="/works/meti-fukushima2020/" class="resource_content cover_image_parent">
+            <div class="box">
+              <img src="/img/works/works1.jpg" alt="経済産業省-福島広報動画">
+              <div class="box-text">
+                <h3 class="resource_title js-text-overflow">経済産業省-福島広報動画「Fukushima2020」-</h3>
+                <div class="resource_tags"><span class="resource_tag">動画</span></div>
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li class="wrapper js_resource_content works-item-2">
+          <a href="/works/sankei-engineering-recruit-video/" class="resource_content cover_image_parent">
+            <div class="box">
+              <img src="/img/works/works2.png" alt="サンケイエンジニアリング採用動画">
+              <div class="box-text">
+                <h3 class="resource_title js-text-overflow">サンケイエンジニアリング採用動画</h3>
+                <div class="resource_tags"><span class="resource_tag">動画</span></div>
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li class="wrapper js_resource_content works-item-3">
+          <a href="/works/hashidume-curry/" class="resource_content cover_image_parent">
+            <div class="box">
+              <img src="/img/works/works3.jpg" alt="Hashidumeカレー紹介動画">
+              <div class="box-text">
+                <h3 class="resource_title js-text-overflow">Hashidumeカレー紹介動画</h3>
+                <div class="resource_tags"><span class="resource_tag">動画</span></div>
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li class="wrapper js_resource_content works-item-4">
+          <a href="/works/peaceful-study-abroad/" class="resource_content cover_image_parent">
+            <div class="box">
+              <img src="/img/works/works4.jpg" alt="Peaceful留学">
+              <div class="box-text">
+                <h3 class="resource_title js-text-overflow">Peaceful留学</h3>
+                <div class="resource_tags">
+                  <span class="resource_tag">LP</span>
+                  <span class="resource_tag">動画</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+
+      </ul>
+
+      <div class="link_object not_responsible">
+        <div class="arrow">
+          <div class="arrow_mask_1"><div class="arrow_line_1"></div></div>
+          <div class="arrow_mask_2"><div class="arrow_line_2"></div></div>
+          <div class="arrow_mask_3"><div class="arrow_line_3"></div></div>
+          <div class="arrow_mask_4"><div class="arrow_line_4"></div></div>
+        </div>
+        <a href="/works/" class="arrow_button">READ MORE WORKS</a>
+      </div>
+      <div class="link_object responsible">
+        <div class="arrow">
+          <div class="arrow_mask_1"><div class="arrow_line_1"></div></div>
+          <div class="arrow_mask_2"><div class="arrow_line_2"></div></div>
+          <div class="arrow_mask_3"><div class="arrow_line_3"></div></div>
+          <div class="arrow_mask_4"><div class="arrow_line_4"></div></div>
+        </div>
+        <a href="/works/" class="arrow_button">READ MORE</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ COMPANY OVERVIEW ============ -->
+  <div class="content" id="company_overview">
+    <div class="title_set">
+      <h2 class="title" id="js_company_overview_title">COMPANY OVERVIEW</h2>
+    </div>
+    <div class="flex_box">
+      <div class="company_overview_left" id="js_company_overview_left">
+        <table>
+          <tr>
+            <td class="green_color">商号</td>
+            <td>アライブマーケティング株式会社</td>
+          </tr>
+          <tr>
+            <td class="green_color">英文表記</td>
+            <td>Alive marketing Inc.</td>
+          </tr>
+          <tr>
+            <td class="green_color">設立年月日</td>
+            <td>2017年10月</td>
+          </tr>
+          <tr>
+            <td class="green_color">本店</td>
+            <td>〒141-0022<br>東京都品川区東五反田5丁目22-37</td>
+          </tr>
+          <tr>
+            <td class="green_color">代表取締役</td>
+            <td>有馬 悠矢</td>
+          </tr>
+          <tr>
+            <td class="green_color">事業内容</td>
+            <td>動画制作、事業投資</td>
+          </tr>
+          <tr>
+            <td class="green_color">顧問税理士</td>
+            <td><a href="https://strada-group.jp/tax/" target="_blank" style="color:inherit;">ストラーダ税理士法人</a></td>
+          </tr>
+        </table>
+
+        <a href="/about/" class="link_object">
+          <div class="arrow">
+            <div class="arrow_mask_1"><div class="arrow_line_1"></div></div>
+            <div class="arrow_mask_2"><div class="arrow_line_2"></div></div>
+            <div class="arrow_mask_3"><div class="arrow_line_3"></div></div>
+            <div class="arrow_mask_4"><div class="arrow_line_4"></div></div>
+          </div>
+          <div class="arrow_button">ABOUT US</div>
+        </a>
+      </div>
+
+      <!-- 地図を横並びに -->
+      <div class="company_overview_map" id="js_company_overview_right">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.975094730203!2d139.71958251480854!3d35.62834048020666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ae333576f71%3A0x3a08f5349bb19e56!2z44CSMTQxLTAwMjIg5p2x5Lqs6YO95ZOB5bed5Yy65p2x5LqU5Y-N55Sw77yV5LiB55uu77yS77yS4oiS77yT77yX!5e0!3m2!1sja!2sjp!4v1621351129925!5m2!1sja!2sjp"
+          allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONTACT ============ -->
+  <div class="content" id="contact">
+    <div class="contact_content">
+      <div class="title_set">
+        <h2 class="title" id="js_contact_title">CONTACT</h2>
+      </div>
+      <div class="contact_button">
+        <a href="/contact/">お問い合わせはこちら</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PARTICLES ============ -->
+  <div id="particles-js"></div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div>
+      <p>Copyright ©︎ 2019 Alive Marketing. All rights reserved</p>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPTS ============ -->
+  <!-- particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <script>
+    /* ---- Particles config ---- */
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 5, density: { enable: true, value_area: 200 } },
+        color: { value: '#ffffff' },
+        shape: { type: 'edge' },
+        opacity: { value: 0.2, random: false },
+        size: { value: 5, random: true },
+        line_linked: { enable: true, distance: 300, color: '#ffffff', opacity: 0.2, width: 1 },
+        move: { enable: true, speed: 1, direction: 'none', out_mode: 'out' }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'repulse' },
+          onclick: { enable: true, mode: 'push' },
+          resize: true
+        },
+        modes: {
+          repulse: { distance: 200 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+
+    /* ---- Scroll-triggered animations (IntersectionObserver) ---- */
+    const animTargets = [
+      { trigger: '#project',            targets: ['#js_project_title', '.js_project_content'] },
+      { trigger: '#resources',          targets: ['#js_resource_title', '.js_resource_content'] },
+      { trigger: '#company_overview',   targets: ['#js_company_overview_title', '#js_company_overview_left', '#js_company_overview_right'] },
+      { trigger: '#contact',             targets: ['#js_contact_title'] },
+    ];
+
+    animTargets.forEach(({ trigger, targets }) => {
+      const triggerEl = document.querySelector(trigger);
+      if (!triggerEl) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            targets.forEach(sel => {
+              document.querySelectorAll(sel).forEach(el => el.classList.add('active'));
+            });
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.1 });
+
+      observer.observe(triggerEl);
+    });
+
+    /* ---- Header background on scroll ---- */
+    const header = document.getElementById('site_header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 1) {
+        header.classList.add('background_header');
+      } else {
+        header.classList.remove('background_header');
+      }
+    });
+
+    /* ---- Hamburger menu ---- */
+    const hamburger = document.getElementById('hamburger_menu');
+    const mobileMenu = document.getElementById('hamburger_menu_content');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      if (hamburger.classList.contains('active')) {
+        mobileMenu.style.display = 'flex';
+        mobileMenu.style.opacity = '0';
+        mobileMenu.style.transition = 'opacity .5s';
+        requestAnimationFrame(() => { mobileMenu.style.opacity = '1'; });
+      } else {
+        mobileMenu.style.opacity = '0';
+        setTimeout(() => { mobileMenu.style.display = 'none'; }, 500);
+      }
+    });
+
+    // メニューリンクをクリックしたらモバイルメニューを閉じる
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.style.opacity = '0';
+        setTimeout(() => { mobileMenu.style.display = 'none'; }, 500);
+      });
+    });
+
+    /* ---- Text overflow ellipsis (project/works titles) ---- */
+    function applyTextOverflow() {
+      document.querySelectorAll('.js-text-overflow').forEach(target => {
+        const originalHTML = target.innerHTML;
+        const clone = target.cloneNode(true);
+        clone.style.cssText = 'display:none;position:absolute;overflow:visible;';
+        clone.style.width = target.offsetWidth + 'px';
+        clone.style.height = 'auto';
+        target.after(clone);
+
+        let html = originalHTML;
+        while (html.length > 0 && clone.offsetHeight > target.offsetHeight) {
+          html = html.substring(0, html.length - 1);
+          clone.innerHTML = html + '...';
+        }
+        target.innerHTML = clone.innerHTML;
+        clone.remove();
+      });
+    }
+
+    window.addEventListener('load', applyTextOverflow);
+  </script>
+
+</body>
+</html>

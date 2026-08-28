@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="動画制作、事業支援等に関するご相談・お問い合わせはこちら。アライブマーケティング株式会社が課題やご要望を伺い、最適なご提案につなげます。">
+  <title>CONTACT – アライブマーケティング株式会社</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: bebasneuebold;
+      src: url('/font/BebasNeueBold.woff') format('woff');
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { overflow-x: hidden; }
+    body {
+      font-family: 'Noto Sans JP','Open Sans',Helvetica Neue,Sans-serif;
+      margin: 0; padding: 0;
+      background-color: #efefef;
+      color: #090909;
+      letter-spacing: 2px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    body * { font-weight: bold; }
+    a { text-decoration: none; color: #000; }
+    h1,h2,h3 { margin: 0; }
+    ul { margin: 0; padding: 0; }
+    li { list-style: none; }
+
+    /* ---- HEADER ---- */
+    header {
+      position: fixed; top: 0; left: 0; z-index: 10;
+      display: flex; width: 100vw; height: 120px;
+      color: #fff; align-items: center;
+      opacity: 0;
+      animation: headerIn 1.4s ease forwards;
+      transition: height .4s, background-color .4s;
+    }
+    header.background_header { height: 60px; background-color: rgba(9,9,9,.8); }
+    header a { color: #fff; }
+    .site-logo { height: 48px; width: auto; display: block; }
+    @media (max-width: 768px) { .site-logo { height: 34px; } }
+    .logo {
+      font-family: bebasneuebold !important;
+      padding: .5rem 0 0 1rem; font-size: 2.8rem;
+      letter-spacing: -0.1em; flex-grow: 3;
+    }
+    .logo:first-letter { color: #46FFDD; }
+    header .menu {
+      margin: 0 1rem; padding-top: .3rem;
+      font-family: bebasneuebold; font-size: 1.5rem;
+      letter-spacing: .1rem; flex-grow: 1;
+      border-bottom: 4px solid transparent; transition: border-color .4s;
+      white-space: nowrap;
+    }
+    header .menu:hover { border-bottom: 4px solid #46FFDD; }
+    .hamburger_menu {
+      position: absolute; right: 10px; display: none;
+      flex-direction: column; align-items: center; justify-content: space-between;
+      width: 24px; height: 18px;
+    }
+    .hamburger_menu_line {
+      width: 100%; height: 1.5px; background-color: #fff;
+      transition: transform .3s ease-in-out, opacity .3s ease-in-out;
+    }
+    .hamburger_menu.active .hamburger_menu_line:nth-child(1) { transform-origin: bottom right; transform: rotate(-45deg); }
+    .hamburger_menu.active .hamburger_menu_line:nth-child(2) { opacity: 0; }
+    .hamburger_menu.active .hamburger_menu_line:nth-child(3) { transform-origin: top right; transform: rotate(45deg); }
+    .hamburger_menu_content {
+      position: fixed; display: none; top: 0; left: 0; z-index: 9;
+      width: 100vw; height: 100vh; padding-top: 5rem;
+      background-color: rgba(0,0,0,.9); justify-content: center;
+    }
+    .hamburger_menu_content ul { width: 70%; }
+    .hamburger_menu_content li { padding: 1rem 0; font-family: bebasneuebold; font-size: 1.8rem; letter-spacing: .3rem; text-align: center; }
+    .hamburger_menu_content li a { color: #fff; }
+    @keyframes headerIn {
+      0% { clip-path: inset(0 0 0 100%); opacity: 0; }
+      100% { clip-path: inset(0); opacity: 1; }
+    }
+
+    /* ---- FIRST VIEW ---- */
+    .first_view {
+      position: relative; display: flex;
+      width: 100vw; height: 100vh;
+      color: #fff; justify-content: center; align-items: center;
+      background-size: cover; background-position: center;
+    }
+    .contact.first_view {
+      background-image: url('https://alivemarketing.co.jp/wp-content/themes/levias/img/building_seen_from_below.jpg');
+    }
+    .first_view::before {
+      position: absolute; inset: 0;
+      background-color: rgba(9, 9, 9, .75); content: "";
+      z-index: 0;
+    }
+    .first_view .title_set {
+      position: relative; z-index: 1;
+      color: #fff; text-align: center;
+    }
+    .title_line {
+      display: inline-block; width: 2.5rem; height: 5px;
+      margin-bottom: 1.6rem; background-color: #fff;
+      opacity: 0; animation: revealTitle .8s ease 1.4s forwards;
+    }
+    .first_view .title {
+      font-family: bebasneuebold !important;
+      font-size: 7rem; letter-spacing: .8rem; color: #fff;
+      opacity: 0; animation: revealTitle .6s ease .4s forwards;
+    }
+    .sub_title {
+      display: inline-block; margin-top: 1.2rem;
+      font-size: 12px; color: #fff; letter-spacing: .1rem;
+      opacity: 0; animation: revealTitle 1.8s ease 1.4s forwards;
+    }
+    .vartical_bar {
+      position: absolute; bottom: 0; left: calc(50% - .5px);
+      width: 1px; height: 30vh; background-color: #fff;
+      opacity: 0; animation: slideDown 1s ease 2s forwards;
+    }
+    @keyframes revealTitle {
+      0% { clip-path: inset(0 100% 0 0); }
+      100% { clip-path: inset(0); opacity: 1; }
+    }
+    @keyframes slideDown {
+      0% { clip-path: inset(0 0 100% 0); }
+      100% { clip-path: inset(0); opacity: 1; }
+    }
+
+    /* ---- FORM AREA ---- */
+    .main_content {
+      position: relative;
+      z-index: 1;
+      width: 66%; padding-bottom: 8rem;
+      margin: 0 auto; margin-top: -10rem;
+    }
+    .main_content_background {
+      position: absolute; top: 6rem; left: 0; z-index: -1;
+      width: 100%; height: calc(100% - 4rem);
+      background-color: #fff;
+    }
+    form {
+      display: flex;
+      width: 70%; padding-top: 10rem;
+      margin: 0 auto;
+      align-items: stretch; flex-direction: column;
+    }
+    .form_title {
+      font-family: bebasneuebold !important;
+      padding-top: 1rem; font-size: 2.6rem !important;
+      letter-spacing: 4px; line-height: 2.6rem; color: #090909;
+    }
+    .line {
+      width: 4rem; height: 3px; margin: .5rem 0 2rem 0;
+      border: none; border-top: solid 6px #46FFDD;
+    }
+
+    form p {
+      display: block;
+      margin: 0 0 1.8rem 0;
+    }
+    label {
+      display: block;
+      font-size: .85rem; line-height: 1.5rem;
+      letter-spacing: .05rem; margin-bottom: .4rem;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      display: block; width: 100%; padding: .8rem;
+      background-color: #F1F1F1; border: none; outline: none;
+      font-family: inherit; font-size: 14px;
+      -webkit-appearance: none; appearance: none;
+    }
+    textarea { padding: .5rem; resize: vertical; }
+    input:invalid, textarea:invalid { box-shadow: none; }
+    input:-webkit-autofill { box-shadow: 0 0 0 1000px #F1F1F1 inset; }
+
+    /* Confirmation step — inputs become white read-only style */
+    .conf-input {
+      width: 100%; padding: .8rem;
+      background-color: #fff; border: none;
+      border-bottom: solid rgba(9,9,9,.85) 1px;
+      font-family: inherit; font-size: 14px;
+      font-weight: normal;
+    }
+    .conf-textarea {
+      width: 100%; padding: .5rem;
+      background-color: #fff; border: none;
+      font-family: inherit; font-size: 14px;
+      font-weight: normal; resize: none;
+    }
+
+    /* Buttons */
+    .submit_area {
+      display: flex; height: 60px; margin: 3rem 0 0 0;
+      justify-content: center;
+    }
+    .confirm_button { position: relative; cursor: pointer; }
+    .back_button {
+      position: relative;
+      width: 45%; max-width: 242px;
+      margin-right: 2rem; cursor: pointer;
+    }
+    .submit_button {
+      position: relative;
+      width: 45%; max-width: 242px;
+      cursor: pointer;
+    }
+
+    /* Button arrows */
+    .confirm_button::before, .submit_button::before {
+      position: absolute; top: calc(50% - 2.5px);
+      left: calc(80% + 5rem);
+      width: 0; height: 0;
+      border: 3px solid transparent; border-left: 14px solid #46FFDD; content: "";
+    }
+    .confirm_button::after, .submit_button::after {
+      position: absolute; top: calc(50% - 1px); left: 80%;
+      width: 5rem; border-bottom: #46FFDD 2px solid; content: "";
+    }
+    .back_button::before {
+      position: absolute; top: calc(50% - 2.5px);
+      right: calc(80% + 5rem);
+      width: 0; height: 0;
+      border: 3px solid transparent; border-right: 14px solid #46FFDD; content: "";
+    }
+    .back_button::after {
+      position: absolute; top: calc(50% - 1px); right: 80%;
+      width: 5rem; border-bottom: #46FFDD 2px solid; content: "";
+    }
+
+    .wpcf7c-btn-confirm {
+      display: block; width: 244px; padding: 1rem 5rem;
+      background-color: #fff; border: solid 2px #000 !important;
+      font-size: 1rem; letter-spacing: .25rem; color: #000;
+      text-align: center; opacity: .8; cursor: pointer;
+      font-family: inherit; font-weight: bold;
+    }
+    .wpcf7c-btn-confirm:hover { background-color: #090909; color: #46FFDD; }
+
+    .wpcf7c-btn-back {
+      display: block; width: 100%; padding: 1rem 0;
+      background-color: #fff; border: solid 2px #000 !important;
+      font-size: 1rem; letter-spacing: .25rem; color: #000;
+      text-align: center; opacity: .8; cursor: pointer;
+      font-family: inherit; font-weight: bold;
+    }
+    .wpcf7c-btn-back:hover { background-color: #efefef; }
+
+    .wpcf7-submit {
+      display: block; width: 100%; padding: 1rem 0;
+      background-color: #090909; border: solid 2px #000;
+      font-size: 1rem; letter-spacing: .25rem;
+      color: #46FFDD; text-align: center; cursor: pointer;
+      font-family: inherit; font-weight: bold;
+    }
+    .wpcf7-submit:hover { opacity: .8; }
+
+    /* Thank you */
+    .thankyou_view {
+      display: none; text-align: center; padding: 4rem 0;
+    }
+    .thankyou_view h2 { font-family: bebasneuebold; font-size: 2rem; color: #090909; margin-bottom: 1rem; }
+    .thankyou_view p { font-weight: normal; opacity: .8; }
+
+    /* ---- FOOTER ---- */
+    footer {
+      display: flex; height: 220px; padding: 1.4rem 0;
+      background-color: #fff; font-size: 12px; letter-spacing: 1px;
+      color: #444; text-align: center;
+      justify-content: space-around; flex-direction: column;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      header { height: 3.5rem; background-color: #444; }
+      .logo { padding-top: 7px; background-color: #444; font-size: 2rem; }
+      header .menu { display: none; }
+      .hamburger_menu { display: flex; }
+      header.background_header { height: 3.5rem !important; background-color: #444 !important; }
+      .first_view .title { font-size: 4rem; letter-spacing: .4rem; }
+      .main_content { width: 94%; margin-top: -5rem; padding-bottom: 4rem; }
+      .main_content_background { top: 3rem; }
+      form { width: 88%; padding-top: 5rem; }
+      .form_title { font-size: 1.8rem !important; letter-spacing: 2px; }
+      .submit_area { height: auto; flex-direction: column-reverse; align-items: center; gap: .8rem; }
+      .back_button, .submit_button { width: 100%; max-width: none; margin-right: 0; }
+      .confirm_button::before { left: calc(90% + 2.5rem); }
+      .confirm_button::after { left: 90%; width: 2.5rem; }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .main_content { width: 80%; }
+      form { width: 75%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="site_header">
+    <div class="logo"><a href="/"><img src="/img/logo.png" alt="ALIVE" class="site-logo" onerror="this.style.display='none';this.nextSibling.style.display='inline';"><span style="display:none;color:#fff;font-family:bebasneuebold;font-size:2.8rem;letter-spacing:-0.1em;">ALIVE</span></a></div>
+    <div class="menu"><a href="/services/">SERVICE</a></div>
+    <div class="menu"><a href="/works/">WORKS</a></div>
+    <div class="menu"><a href="/about/">ABOUT US</a></div>
+    <div class="menu"><a href="/recruit/">RECRUIT</a></div>
+    <div class="menu"><a href="/contact/">CONTACT</a></div>
+    <div class="hamburger_menu" id="hamburger_menu">
+      <div class="hamburger_menu_line"></div>
+      <div class="hamburger_menu_line"></div>
+      <div class="hamburger_menu_line"></div>
+    </div>
+  </header>
+  <div class="hamburger_menu_content" id="hamburger_menu_content">
+    <ul>
+      <li><a href="/services/">SERVICE</a></li>
+      <li><a href="/works/">WORKS</a></li>
+      <li><a href="/about/">ABOUT US</a></li>
+      <li><a href="/recruit/">RECRUIT</a></li>
+      <li><a href="/contact/">CONTACT</a></li>
+    </ul>
+  </div>
+
+  <!-- FIRST VIEW -->
+  <div class="contact first_view">
+    <div class="title_set">
+      <div class="title_line"></div>
+      <h1 class="title">CONTACT</h1>
+      <span class="sub_title">コンタクト</span>
+    </div>
+    <div class="vartical_bar"></div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main_content">
+
+    <!-- White background box (direct child of main_content, spans full width) -->
+    <div class="main_content_background"></div>
+
+    <form id="contact_form" novalidate>
+
+      <!-- Step titles -->
+      <div class="form_title" id="title_step1">CONTACT US</div>
+      <div class="form_title" id="title_step2" style="display:none;">確認画面</div>
+      <div class="line"></div>
+
+      <!-- Step 1: Input fields -->
+      <div id="step1">
+        <p><label>お問い合わせ件名&nbsp;<font color="red">必須</font><br>
+          <input type="text" name="title" id="f_title" required>
+        </label></p>
+        <p><label>氏名&nbsp;<font color="red">必須</font><br>
+          <input type="text" name="name" id="f_name" required>
+        </label></p>
+        <p><label>法人名・組織名<br>
+          <input type="text" name="organization" id="f_org">
+        </label></p>
+        <p><label>電話番号<br>
+          <input type="tel" name="phone" id="f_phone">
+        </label></p>
+        <p><label>email&nbsp;<font color="red">必須</font><br>
+          <input type="email" name="email" id="f_email" required>
+        </label></p>
+        <p><label>お問い合わせ内容&nbsp;<font color="red">必須</font><br>
+          <textarea name="message" id="f_message" rows="10" required></textarea>
+        </label></p>
+        <div id="validation_error" style="display:none; margin: 1rem 0; padding: 1rem 1.5rem; border: 2px solid #f0d000; font-size: .9rem; letter-spacing: .05rem; font-weight: normal;">
+          入力内容に問題があります。確認して再度お試しください。
+        </div>
+        <div class="submit_area">
+          <div class="confirm_button">
+            <input type="submit" value="確認画面" class="wpcf7c-btn-confirm">
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Confirmation -->
+      <div id="step2" style="display:none;">
+        <div id="confirm_fields"></div>
+        <div class="submit_area" style="height:auto;">
+          <div class="back_button">
+            <input type="button" value="戻る" id="btn_back" class="wpcf7c-btn-back">
+          </div>
+          <div class="submit_button">
+            <input type="button" value="送信" id="btn_send" class="wpcf7-submit">
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Thank you -->
+      <div id="step3" class="thankyou_view">
+        <h2>お問い合わせありがとうございます</h2>
+        <p>内容を確認の上、担当者よりご連絡いたします。</p>
+        <p style="margin-top:2rem;"><a href="/" style="color:#46FFDD;border-bottom:1px solid #46FFDD;">トップページへ戻る</a></p>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div><p>Copyright ©︎ 2019 Alive Marketing. All rights reserved</p></div>
+  </footer>
+
+  <script>
+    // Header scroll
+    const header = document.getElementById('site_header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('background_header', window.scrollY > 1);
+    });
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger_menu');
+    const mobileMenu = document.getElementById('hamburger_menu_content');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      if (hamburger.classList.contains('active')) {
+        mobileMenu.style.display = 'flex';
+        mobileMenu.style.opacity = '0';
+        mobileMenu.style.transition = 'opacity .5s';
+        requestAnimationFrame(() => { mobileMenu.style.opacity = '1'; });
+      } else {
+        mobileMenu.style.opacity = '0';
+        setTimeout(() => { mobileMenu.style.display = 'none'; }, 500);
+      }
+    });
+
+    // Field definitions
+    const fields = [
+      { id: 'f_title',   label: 'お問い合わせ件名', type: 'text' },
+      { id: 'f_name',    label: '氏名',              type: 'text' },
+      { id: 'f_org',     label: '法人名・組織名',    type: 'text' },
+      { id: 'f_phone',   label: '電話番号',          type: 'text' },
+      { id: 'f_email',   label: 'email',             type: 'text' },
+      { id: 'f_message', label: 'お問い合わせ内容',  type: 'textarea' }
+    ];
+
+    // Form submit → go to step 2
+    document.getElementById('contact_form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Validate required fields
+      let valid = true;
+      this.querySelectorAll('[required]').forEach(el => {
+        if (!el.value.trim()) {
+          el.style.outline = '2px solid red';
+          valid = false;
+        } else {
+          el.style.outline = '';
+        }
+      });
+      const errBox = document.getElementById('validation_error');
+      if (!valid) {
+        errBox.style.display = 'block';
+        return;
+      }
+      errBox.style.display = 'none';
+
+      // Build confirmation display (read-only style inputs)
+      const container = document.getElementById('confirm_fields');
+      container.innerHTML = fields.map(f => {
+        const el = document.getElementById(f.id);
+        const val = el ? el.value : '';
+        if (f.type === 'textarea') {
+          return `<p><label>${f.label}<br><textarea class="conf-textarea" rows="5" readonly>${val}</textarea></label></p>`;
+        }
+        return `<p><label>${f.label}<br><input class="conf-input" type="text" value="${val.replace(/"/g,'&quot;')}" readonly></label></p>`;
+      }).join('');
+
+      // Switch to step 2
+      document.getElementById('step1').style.display = 'none';
+      document.getElementById('title_step1').style.display = 'none';
+      document.getElementById('step2').style.display = 'block';
+      document.getElementById('title_step2').style.display = 'block';
+    });
+
+    // Back button → go to step 1
+    document.getElementById('btn_back').addEventListener('click', () => {
+      document.getElementById('step2').style.display = 'none';
+      document.getElementById('title_step2').style.display = 'none';
+      document.getElementById('step1').style.display = 'block';
+      document.getElementById('title_step1').style.display = 'block';
+    });
+
+    // Send button → submit to Formspree then go to step 3
+    document.getElementById('btn_send').addEventListener('click', async () => {
+      const btn = document.getElementById('btn_send');
+      btn.disabled = true;
+      btn.value = '送信中...';
+
+      const data = {
+        お問い合わせ件名: document.getElementById('f_title').value,
+        氏名: document.getElementById('f_name').value,
+        '法人名・組織名': document.getElementById('f_org').value,
+        電話番号: document.getElementById('f_phone').value,
+        email: document.getElementById('f_email').value,
+        お問い合わせ内容: document.getElementById('f_message').value,
+        _replyto: document.getElementById('f_email').value,
+      };
+
+      try {
+        const res = await fetch('https://formspree.io/info@alive-m.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (res.ok) {
+          document.getElementById('step2').style.display = 'none';
+          document.getElementById('title_step2').style.display = 'none';
+          document.getElementById('step3').style.display = 'block';
+        } else {
+          btn.disabled = false;
+          btn.value = '送信';
+          alert('送信に失敗しました。しばらくしてから再度お試しください。');
+        }
+      } catch(e) {
+        btn.disabled = false;
+        btn.value = '送信';
+        alert('送信に失敗しました。インターネット接続を確認してください。');
+      }
+    });
+  </script>
+</body>
+</html>
